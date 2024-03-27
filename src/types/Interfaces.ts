@@ -13,3 +13,8 @@ export type ProductItemPropsType = {
     };
   };
 };
+
+export interface IToolbarProps {
+  title: string;
+  icon: React.ReactNode;
+}
