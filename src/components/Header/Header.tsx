@@ -1,6 +1,7 @@
 import { memo, useState } from 'react';
 import { AccountCircleOutlined } from '@mui/icons-material';
 import { IconButton, Typography, Menu, Tooltip, MenuItem } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 import {
   ControlPanelStyles,
@@ -15,8 +16,9 @@ import logo from '../../assets/img/images/logo.svg';
 
 function Header() {
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
+  const navigate = useNavigate();
 
-  const settings = ['Account', 'Dashboard', 'Logout'];
+  const pages = ['Account', 'Dashboard', 'Logout'];
 
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
@@ -24,6 +26,16 @@ function Header() {
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
+  };
+
+  const handleChoosePage = (page: string) => {
+    if (page === 'Dashboard') {
+      navigate('/admin-control');
+    } else if (page === 'Account') {
+      navigate('/');
+    } else if (page === 'Logout') {
+      navigate('/');
+    }
   };
 
   return (
@@ -62,9 +74,11 @@ function Header() {
             open={Boolean(anchorElUser)}
             onClose={handleCloseUserMenu}
           >
-            {settings.map(setting => (
-              <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                <Typography textAlign="center">{setting}</Typography>
+            {pages.map(page => (
+              <MenuItem key={page} onClick={handleCloseUserMenu}>
+                <Typography textAlign="center" onClick={() => handleChoosePage(page)}>
+                  {page}
+                </Typography>
               </MenuItem>
             ))}
           </Menu>

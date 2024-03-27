@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export type ProductItemPropsType = {
   index: number;
   item: {
@@ -17,4 +19,8 @@ export type ProductItemPropsType = {
 export interface IToolbarProps {
   title: string;
   icon: React.ReactNode;
+}
+
+export interface IMainProps {
+  children: ReactNode;
 }
