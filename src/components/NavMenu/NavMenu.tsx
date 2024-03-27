@@ -3,12 +3,12 @@ import { NavMenuListItemStyles, NavMenuListStyles, NavMenuStyles } from './NavMe
 
 function NavMenu() {
   const menuItems = [
-    { name: 'Главная', link: '/admin-page' },
-    { name: 'Пользователи', link: '/admin-page/users' },
-    { name: 'Категории', link: '/admin-page/categories' },
-    { name: 'Товары', link: '/admin-page/products' },
-    { name: 'Заказы', link: '/admin-page/orders' },
-    { name: 'Отчеты', link: '/admin-page/reports' },
+    { name: 'Главная', link: '/' },
+    { name: 'Пользователи', link: '/users' },
+    { name: 'Категории', link: '/categories' },
+    { name: 'Товары', link: '/products' },
+    { name: 'Заказы', link: '/orders' },
+    { name: 'Отчеты', link: '/reports' },
   ];
 
   return (
