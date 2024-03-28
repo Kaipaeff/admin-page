@@ -1,5 +1,5 @@
-import { NavLink } from 'react-router-dom';
 import { NavMenuListItemStyles, NavMenuListStyles, NavMenuStyles } from './NavMenu.styles';
+import CustomLink from '../hooks/CustomLink';
 
 function NavMenu() {
   const menuItems = [
@@ -16,7 +16,7 @@ function NavMenu() {
       <NavMenuListStyles>
         {menuItems.map((item, index) => (
           <NavMenuListItemStyles key={index}>
-            <NavLink to={item.link}>{item.name}</NavLink>
+            <CustomLink to={item.link}>{item.name}</CustomLink>
           </NavMenuListItemStyles>
         ))}
       </NavMenuListStyles>

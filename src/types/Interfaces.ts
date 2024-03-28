@@ -1,4 +1,5 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
+import { LinkProps } from 'react-router-dom';
 
 export type ProductItemPropsType = {
   index: number;
@@ -18,9 +19,14 @@ export type ProductItemPropsType = {
 
 export interface IToolbarProps {
   title: string;
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
 }
 
 export interface IMainProps {
   children: ReactNode;
+}
+
+export interface CustomLinkProps extends LinkProps {
+  children: ReactNode;
+  to: string;
 }

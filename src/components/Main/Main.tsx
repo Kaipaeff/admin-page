@@ -9,8 +9,6 @@ function Main({ children }: IMainProps) {
   return (
     <MainStyles>
       {children}
-      {/* <HomePage /> */}
-      {/* <AdminControlPage /> */}
       <Divider variant="fullWidth" sx={{ mt: 'auto', pt: '24px' }} />
     </MainStyles>
   );
