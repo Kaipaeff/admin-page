@@ -1,5 +1,5 @@
+import { ButtonProps } from '@mui/material';
 import { ReactNode } from 'react';
-import { LinkProps } from 'react-router-dom';
 
 export type IProductItemPropsType = {
   index?: number;
@@ -36,8 +36,9 @@ export interface IProductsProps {
 }
 
 export interface IToolbarProps {
-  title: string;
-  icon?: React.ReactNode;
+  title?: string;
+  icon?: ReactNode;
+  button?: ReactNode;
 }
 
 export interface IMainProps {

@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { grey, white } from '../../styles/Colors';
+import { grey, mainGrey, white } from '../../styles/Colors';
 
 export const HeaderStyles = styled.header`
   position: fixed;
@@ -58,6 +58,6 @@ export const ControlPanelStyles = styled.div`
 
 export const GreetingTextStyles = styled.span`
   padding-top: 4px;
-  color: ${grey};
+  color: ${mainGrey};
   font-weight: 600;
 `;
