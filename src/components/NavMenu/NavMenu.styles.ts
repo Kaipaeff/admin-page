@@ -1,5 +1,4 @@
 import { styled } from 'styled-components';
-import { neonGreen } from '../../styles/Colors';
 
 export const NavMenuStyles = styled.nav`
   display: flex;
@@ -12,10 +11,4 @@ export const NavMenuListStyles = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 16px;
-`;
-
-export const NavMenuListItemStyles = styled.li`
-  &:hover {
-    color: ${neonGreen};
-  }
 `;

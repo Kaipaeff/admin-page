@@ -35,7 +35,7 @@ export const HeaderContainerStyles = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 1600px;
+  width: 1200px;
   height: 100%;
 
   @media (max-width: 640px) {

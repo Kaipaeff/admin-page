@@ -1,8 +1,7 @@
-import { useState, useRef, memo } from 'react';
+import { useState, useRef } from 'react';
 import {
   Card,
   CardContent,
-  Typography,
   Divider,
   // Checkbox,
   // Tooltip,
@@ -19,7 +18,7 @@ import {
 // import { getAllTodosApi } from '../../services/api/rest/getAllTodosApi';
 // import { updateTaskApi } from '../../services/api/rest/updateTaskApi';
 
-import { ProductItemPropsType } from '../../types/Interfaces';
+import { IProductItemPropsType } from '../../types/Interfaces';
 
 import {
   ProductItemDescrStyles,
@@ -34,7 +33,7 @@ import {
 } from './ProductItem.styles';
 import { deleteItemColor, white } from '../../styles/Colors';
 
-function ProductItem({ index = 0, item }: ProductItemPropsType) {
+function ProductItem({ product }: IProductItemPropsType) {
   // const [checked, setChecked] = useState<boolean>(item.completed);
   const [showModal, setShowModal] = useState<boolean>(false);
   // const [notification, setNotification] = useState<INotificationProps>({ open: false, type: '', message: '' });
@@ -162,27 +161,13 @@ function ProductItem({ index = 0, item }: ProductItemPropsType) {
               },
             }}
           >
-            <Typography
-              variant="body1"
-              color="text.secondary"
-              sx={{
-                marginRight: '6px',
-                fontSize: '18px',
-                fontWeight: '700',
-                '@media (max-width: 640px)': {
-                  fontSize: '16px',
-                },
-              }}
-            >
-              {`${index + 1}.`}
-            </Typography>
-            <ProductItemTitleStyles>{item.title}</ProductItemTitleStyles>
+            <ProductItemTitleStyles>{product?.title}</ProductItemTitleStyles>
             <Divider orientation="vertical" variant="fullWidth" sx={{ m: '0 24px', height: '60px' }} />
-            <ProductItemDescrStyles>{item.description}</ProductItemDescrStyles>
+            <ProductItemDescrStyles>{product?.description}</ProductItemDescrStyles>
             <Divider orientation="vertical" variant="fullWidth" sx={{ m: '0 24px', height: '60px' }} />
-            <ProductItemPriceStyles>{item.price}</ProductItemPriceStyles>
+            <ProductItemPriceStyles>{product?.price}</ProductItemPriceStyles>
             <Divider orientation="vertical" variant="fullWidth" sx={{ m: '0 24px', height: '60px' }} />
-            <ProductItemImageStyles src={item.image} />
+            <ProductItemImageStyles src={product?.image} />
             {/* {!isEditing ? (
               <>
                 <Typography
@@ -281,4 +266,4 @@ function ProductItem({ index = 0, item }: ProductItemPropsType) {
   );
 }
 
-export default memo(ProductItem);
+export default ProductItem;

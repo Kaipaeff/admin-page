@@ -1,32 +1,21 @@
-import styled from 'styled-components';
-
-import { Link, useMatch } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { CustomLinkProps } from '../../types/Interfaces';
 
 import { mainGrey, neonGreen } from '../../styles/Colors';
 
-const StyledLink = styled(Link)`
-  color: ${mainGrey};
-  text-decoration: none;
-  transition: color 0.3s;
-
-  &:hover {
-    color: ${neonGreen};
-  }
-`;
-
-const CustomLink = ({ children, to, ...props }: CustomLinkProps) => {
-  const match = useMatch(to);
+const CustomLink = ({ children, to }: CustomLinkProps) => {
   return (
-    <StyledLink
+    <NavLink
       to={to}
-      style={{
-        color: match ? neonGreen : mainGrey,
+      style={({ isActive }) => {
+        return {
+          fontWeight: isActive ? 'bold' : '',
+          color: isActive ? neonGreen : mainGrey,
+        };
       }}
-      {...props}
     >
       {children}
-    </StyledLink>
+    </NavLink>
   );
 };
 

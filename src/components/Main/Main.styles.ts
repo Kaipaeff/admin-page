@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 export const MainStyles = styled.main`
   display: flex;
   flex-direction: column;
-  width: 1600px;
+  width: 1200px;
   height: 760px;
   margin-top: 120px;
 
@@ -16,5 +16,3 @@ export const MainStyles = styled.main`
     padding: 8px 12px;
   }
 `;
-
-
