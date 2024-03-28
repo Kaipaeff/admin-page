@@ -1,9 +1,9 @@
 import { Divider } from '@mui/material';
 import NavMenu from '../../components/NavMenu/NavMenu';
-import Products from '../../components/Products/Products';
 import Toolbar from '../../components/Toolbar/Toolbar.component';
 import { AdminControlContentStyles } from './AdminControlPage.styles';
 import { AdminPanelSettingsIcon } from '../../components/Toolbar/Toolbar.styles';
+import { Outlet } from 'react-router-dom';
 
 function AdminControlPage() {
   return (
@@ -13,7 +13,7 @@ function AdminControlPage() {
       <AdminControlContentStyles>
         <NavMenu />
         <Divider orientation="vertical" variant="fullWidth" sx={{ mr: '24px' }} />
-        <Products />
+        <Outlet />
       </AdminControlContentStyles>
     </>
   );

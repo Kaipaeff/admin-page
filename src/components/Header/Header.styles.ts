@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { grey, white } from '../../styles/Colors';
+import { grey, mainGrey, white } from '../../styles/Colors';
 
 export const HeaderStyles = styled.header`
   position: fixed;
@@ -35,7 +35,7 @@ export const HeaderContainerStyles = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 1600px;
+  width: 1200px;
   height: 100%;
 
   @media (max-width: 640px) {
@@ -58,6 +58,6 @@ export const ControlPanelStyles = styled.div`
 
 export const GreetingTextStyles = styled.span`
   padding-top: 4px;
-  color: ${grey};
+  color: ${mainGrey};
   font-weight: 600;
 `;

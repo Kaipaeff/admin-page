@@ -1,22 +1,21 @@
-import { memo } from 'react';
-
 import ProductItem from '../ProductItem/ProductItem';
-import { products } from '../../utilities/data';
 
+import { IProductsProps } from '../../types/Interfaces';
 import { ProductsItemsStyles, ProductsStyles } from './Products.styles';
+import CustomLink from '../hooks/CustomLink';
 
-function Products() {
-  console.log('products', products);
-
+function Products({ allProducts }: IProductsProps) {
   return (
     <ProductsStyles>
       <ProductsItemsStyles>
-        {products.map((item, index) => (
-          <ProductItem key={item.id} item={item} index={index} />
+        {allProducts.map(item => (
+          <CustomLink key={item.id} to={`/products/${item.id}`}>
+            <ProductItem key={item.id} product={item} />
+          </CustomLink>
         ))}
       </ProductsItemsStyles>
     </ProductsStyles>
   );
 }
 
-export default memo(Products);
+export default Products;

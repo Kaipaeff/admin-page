@@ -18,7 +18,7 @@ function Header() {
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
   const navigate = useNavigate();
 
-  const pages = ['Account', 'Dashboard', 'Logout'];
+  const pages = ['Home', 'Dashboard'];
 
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
@@ -29,12 +29,10 @@ function Header() {
   };
 
   const handleChoosePage = (page: string) => {
-    if (page === 'Dashboard') {
+    if (page === 'Home') {
+      navigate('/');
+    } else if (page === 'Dashboard') {
       navigate('/admin-control');
-    } else if (page === 'Account') {
-      navigate('/');
-    } else if (page === 'Logout') {
-      navigate('/');
     }
   };
 
