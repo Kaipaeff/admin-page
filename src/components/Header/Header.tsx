@@ -13,15 +13,14 @@ import {
 
 import { mainGrey } from '../../styles/Colors';
 import logo from '../../assets/img/images/logo.svg';
+import { IHeaderProps } from '../../types/Interfaces';
 
-function Header() {
+function Header({ user }: IHeaderProps) {
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
   const navigate = useNavigate();
 
-  const pages = ['Home', 'Dashboard'];
-
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
+    user.isAdmin && setAnchorElUser(event.currentTarget);
   };
 
   const handleCloseUserMenu = () => {
@@ -29,19 +28,21 @@ function Header() {
   };
 
   const handleChoosePage = (page: string) => {
-    if (page === 'Home') {
+    if (user.isAdmin && page === 'Home') {
       navigate('/');
-    } else if (page === 'Dashboard') {
-      navigate('/admin-control');
+    } else if (user.isAdmin && page === 'Dashboard') {
+      navigate('admin-control');
     }
   };
+
+  const pages = ['Home', 'Dashboard'];
 
   return (
     <HeaderStyles>
       <HeaderContainerStyles>
         <LogoImage src={logo} alt="Логотип" />
         <ControlPanelStyles>
-          <GreetingTextStyles>Привет, Админ!</GreetingTextStyles>
+          <GreetingTextStyles>{user.isAdmin ? 'Привет, Админ!' : 'Добро пожаловать!'}</GreetingTextStyles>
           <Tooltip title="Open settings">
             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
               <AccountCircleOutlined

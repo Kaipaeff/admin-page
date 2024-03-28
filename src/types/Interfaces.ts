@@ -1,4 +1,3 @@
-import { ButtonProps } from '@mui/material';
 import { ReactNode } from 'react';
 
 export type IProductItemPropsType = {
@@ -39,6 +38,7 @@ export interface IToolbarProps {
   title?: string;
   icon?: ReactNode;
   button?: ReactNode;
+  showServicesButtons: boolean;
 }
 
 export interface IMainProps {
@@ -50,6 +50,19 @@ export interface CustomLinkProps {
   to: string;
 }
 
-export interface ISingleProductPageProps extends IProductsProps {}
-export interface IAdminControlPageProps extends IProductsProps {}
-export interface IHomePageProps extends IProductsProps {}
+export interface IUser {
+  login: string;
+  password: string;
+  isAdmin: boolean;
+}
+
+export interface IUserProps {
+  user: IUser;
+  setUser?: (user: IUser) => void;
+}
+
+export interface ISingleProductPageProps extends Pick<IProductsProps, 'allProducts'>, IUserProps {}
+export interface IAdminControlPageProps extends Pick<IProductsProps, 'allProducts'>, IUserProps {}
+export interface IHomePageProps extends IProductsProps, IUserProps {}
+export interface ILayoutProps extends IUserProps {}
+export interface IHeaderProps extends IUserProps {}

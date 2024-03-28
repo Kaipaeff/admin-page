@@ -5,7 +5,7 @@ export const MainStyles = styled.main`
   flex-direction: column;
   width: 1200px;
   height: 760px;
-  margin-top: 120px;
+  margin-top: 100px;
 
   @media (max-width: 640px) {
     position: fixed;

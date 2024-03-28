@@ -6,10 +6,10 @@ import Toolbar from '../../components/Toolbar/Toolbar.component';
 import { IHomePageProps } from '../../types/Interfaces';
 import { HomePageIcon } from '../../components/Toolbar/Toolbar.styles';
 
-function HomePage({ allProducts }: IHomePageProps) {
+function HomePage({ allProducts, user }: IHomePageProps) {
   return (
     <>
-      <Toolbar title={'Главная'} icon={<HomePageIcon />} />
+      <Toolbar title={'Главная'} icon={<HomePageIcon />} showServicesButtons={false} />
       <Divider variant="fullWidth" sx={{ mb: '24px' }} />
       <Products allProducts={allProducts} />
     </>
