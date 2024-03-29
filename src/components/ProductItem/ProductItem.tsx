@@ -161,7 +161,7 @@ function ProductItem({ product: { title, price, image, description, rating } }: 
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
-              height: `${id ? '600px' : ''}`,
+              height: `${id ? '580px' : ''}`,
               padding: '24px 80px',
               '@media (max-width: 640px)': {
                 padding: '12px',
@@ -174,7 +174,7 @@ function ProductItem({ product: { title, price, image, description, rating } }: 
               marginRight={id && '48px'}
               src={image}
             />
-            {!id && <Divider orientation="vertical" variant="fullWidth" sx={{ m: '0 56px', height: '60px' }} />}
+            {!id && <Divider orientation="vertical" variant="fullWidth" sx={{ m: '0 56px', height: '120px' }} />}
 
             <ProductItemInfoStyles
               display={id && 'flex'}

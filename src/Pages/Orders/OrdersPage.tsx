@@ -1,5 +1,11 @@
+import { OrdersPageStyles } from "./OrdersPage.styles";
+
 function OrdersPage() {
-  return <h2>Добро пожаловать на страницу Заказы!</h2>;
+  return (
+    <OrdersPageStyles>
+      <p>Здесь пока пусто</p>
+    </OrdersPageStyles>
+  );
 }
 
 export default OrdersPage;

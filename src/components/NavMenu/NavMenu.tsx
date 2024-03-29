@@ -3,7 +3,7 @@ import CustomLink from '../hooks/CustomLink';
 
 function NavMenu() {
   const menuItems = [
-    { name: 'Главная', link: '/' },
+    { name: 'Главная', link: 'start-page' },
     { name: 'Пользователи', link: 'users' },
     { name: 'Категории', link: 'categories' },
     { name: 'Товары', link: 'products' },

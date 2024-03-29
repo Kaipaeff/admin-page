@@ -15,6 +15,7 @@ import ReportsPage from './Pages/Reports/ReportsPage';
 import UsersPage from './Pages/Users/UsersPage';
 import CategoriesPage from './Pages/Categories/CategoriesPage';
 import OrdersPage from './Pages/Orders/OrdersPage';
+import StartPage from './Pages/StartPage/StartPage';
 
 function App() {
   const [user, setUser] = useState<IUser>({ login: 'Admin', password: '123', isAdmin: false });
@@ -33,6 +34,7 @@ function App() {
         <Route path="/" element={<Layout user={user} setUser={setUser} />}>
           <Route index element={<HomePage allProducts={allProducts} user={user} />} />
           <Route path="admin-control" element={<AdminControlPage allProducts={allProducts} user={user} />}>
+            <Route path="start-page" element={<StartPage />} />
             <Route path="users" element={<UsersPage />} />
             <Route path="categories" element={<CategoriesPage />} />
 

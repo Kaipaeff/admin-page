@@ -1,5 +1,11 @@
+import { ReportsPageStyles } from './ReportsPage.styles';
+
 function ReportsPage() {
-  return <h2>Добро пожаловать на страницу Отчеты!</h2>;
+  return (
+    <ReportsPageStyles>
+      <p>Здесь пока пусто</p>
+    </ReportsPageStyles>
+  );
 }
 
 export default ReportsPage;
