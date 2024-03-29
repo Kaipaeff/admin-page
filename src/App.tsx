@@ -35,7 +35,11 @@ function App() {
           <Route path="admin-control" element={<AdminControlPage allProducts={allProducts} user={user} />}>
             <Route path="users" element={<UsersPage />} />
             <Route path="categories" element={<CategoriesPage />} />
-            <Route path="products" element={<Products allProducts={allProducts} />} />
+
+            <Route path="products" element={<Products allProducts={allProducts} />}>
+              <Route path=":id" element={<SingleProductPage allProducts={allProducts} user={user} />} />
+            </Route>
+
             <Route path="orders" element={<OrdersPage />} />
             <Route path="reports" element={<ReportsPage />} />
           </Route>
