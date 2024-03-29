@@ -1,14 +1,17 @@
+import { Outlet } from 'react-router-dom';
 import { Divider } from '@mui/material';
+
 import NavMenu from '../../components/NavMenu/NavMenu';
 import Toolbar from '../../components/Toolbar/Toolbar.component';
+
+import { IAdminControlPageProps } from '../../types/Interfaces';
 import { AdminControlContentStyles } from './AdminControlPage.styles';
 import { AdminPanelSettingsIcon } from '../../components/Toolbar/Toolbar.styles';
-import { Outlet } from 'react-router-dom';
 
-function AdminControlPage() {
+function AdminControlPage({ user }: IAdminControlPageProps) {
   return (
     <>
-      <Toolbar title={'Панель управления'} icon={<AdminPanelSettingsIcon />} />
+      <Toolbar title={'Панель управления'} icon={<AdminPanelSettingsIcon />} showServicesButtons={true} />
       <Divider variant="fullWidth" sx={{ mb: '24px' }} />
       <AdminControlContentStyles>
         <NavMenu />

@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { grey, mainGrey, white } from '../../styles/Colors';
+import { mainGrey, white } from '../../styles/Colors';
 
 export const HeaderStyles = styled.header`
   position: fixed;
@@ -10,10 +10,10 @@ export const HeaderStyles = styled.header`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 90px;
+  height: 80px;
   background-color: ${white};
   /* box-shadow: 0 4px 12px 3px rgba(2, 9, 51, 0.07); */
-  /* z-index: 3; */
+  z-index: 3;
 
   @media (max-width: 640px) {
     padding: 0 12px 4px;
@@ -22,7 +22,7 @@ export const HeaderStyles = styled.header`
 `;
 
 export const LogoImage = styled.img`
-  width: 120px;
+  width: 100px;
 
   @media (max-width: 640px) {
     width: 90px;

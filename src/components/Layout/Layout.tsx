@@ -1,13 +1,15 @@
 import { memo } from 'react';
+import { Outlet } from 'react-router-dom';
 
 import Header from '../Header/Header';
 import Main from '../Main/Main';
-import { Outlet } from 'react-router-dom';
 
-function Layout() {
+import { ILayoutProps } from '../../types/Interfaces';
+
+function Layout({ user, setUser }: ILayoutProps) {
   return (
     <>
-      <Header />
+      <Header user={user} setUser={setUser} />
 
       <Main>
         <Outlet />

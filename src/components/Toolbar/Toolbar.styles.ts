@@ -32,3 +32,10 @@ export const ToolbarControlButtonsStyles = styled.div`
   align-items: center;
   gap: 24px;
 `;
+
+export const ToolbarServicesButtonsStyles = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+`;

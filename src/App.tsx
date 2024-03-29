@@ -1,19 +1,20 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import { IProduct } from './types/Interfaces';
-import Layout from './components/Layout/Layout';
+import { IProduct, IUser } from './types/Interfaces';
 import { GlobalStyles } from './styles/GlobalStyles';
+
+import Layout from './components/Layout/Layout';
+import Products from './components/Products/Products';
 
 import AdminControlPage from './Pages/AdminControlPage/AdminControlPage';
 import HomePage from './Pages/HomePage/HomePage';
 import NotFoundPage from './Pages/NotFoundPage/NotFoundPage';
 import SingleProductPage from './Pages/SingleProductPage/SingleProductPage';
-import Products from './components/Products/Products';
 
 function App() {
+  const [user, setUser] = useState<IUser>({ login: 'Admin', password: '123', isAdmin: false });
   const [allProducts, setAllProducts] = useState<IProduct[]>([]);
-  console.log('allProducts:', allProducts);
 
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
@@ -25,12 +26,12 @@ function App() {
     <>
       <GlobalStyles />
       <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage allProducts={allProducts} />} />
-          <Route path="admin-control" element={<AdminControlPage />}>
+        <Route path="/" element={<Layout user={user} setUser={setUser} />}>
+          <Route index element={<HomePage allProducts={allProducts} user={user} />} />
+          <Route path="admin-control" element={<AdminControlPage allProducts={allProducts} user={user} />}>
             <Route path="products" element={<Products allProducts={allProducts} />} />
           </Route>
-          <Route path="products/:id" element={<SingleProductPage allProducts={allProducts} />} />
+          <Route path="products/:id" element={<SingleProductPage allProducts={allProducts} user={user} />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

@@ -3,14 +3,19 @@ import AddIcon from '@mui/icons-material/Add';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 
 import { IToolbarProps } from '../../types/Interfaces';
-import { ToolbarControlButtonsStyles, ToolbarStyles, ToolbarTitleStyles } from './Toolbar.styles';
+import {
+  ToolbarControlButtonsStyles,
+  ToolbarServicesButtonsStyles,
+  ToolbarStyles,
+  ToolbarTitleStyles,
+} from './Toolbar.styles';
 import { useState } from 'react';
 import lettersDown from '../../assets/img/icons/sort-az.svg';
 import lettersUp from '../../assets/img/icons/sort-za.svg';
 import numbersDown from '../../assets/img/icons/sort-9-0.svg';
 import numbersUp from '../../assets/img/icons/sort-0-9.svg';
 
-function Toolbar({ title, icon, button }: IToolbarProps) {
+function Toolbar({ title, icon, button, showServicesButtons }: IToolbarProps) {
   const [sortOfLetters, setSortOfLetters] = useState(true);
   const [sortOfPrice, setSortOfPrice] = useState(false);
 
@@ -31,15 +36,19 @@ function Toolbar({ title, icon, button }: IToolbarProps) {
       </ToolbarTitleStyles>
 
       <ToolbarControlButtonsStyles>
-        <Button variant="outlined" color="inherit" size="small" sx={{ pr: '12px' }}>
-          <AddIcon sx={{ mr: '4px' }} />
-          Добавить товар
-        </Button>
+        {showServicesButtons && (
+          <ToolbarServicesButtonsStyles>
+            <Button variant="outlined" color="inherit" size="small" sx={{ pr: '12px' }}>
+              <AddIcon sx={{ mr: '4px' }} />
+              Добавить товар
+            </Button>
 
-        <Button variant="outlined" color="inherit" size="small" sx={{ pr: '12px' }}>
-          <FileDownloadOutlinedIcon sx={{ mr: '4px' }} />
-          Выгрузить список
-        </Button>
+            <Button variant="outlined" color="inherit" size="small" sx={{ pr: '12px' }}>
+              <FileDownloadOutlinedIcon sx={{ mr: '4px' }} />
+              Выгрузить список
+            </Button>
+          </ToolbarServicesButtonsStyles>
+        )}
 
         <Button onClick={handleLettersSort} variant="outlined" color="inherit" size="small">
           {sortOfLetters ? <img src={lettersDown} alt="Сортировка" /> : <img src={lettersUp} alt="Сортировка" />}

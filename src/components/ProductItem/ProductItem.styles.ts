@@ -5,6 +5,7 @@ import { blue, textColor } from '../../styles/Colors';
 
 export const ProductItemStyles = styled.div`
   margin-bottom: 24px;
+  padding: 2px;
 
   @media (max-width: 640px) {
     margin-bottom: 12px;
