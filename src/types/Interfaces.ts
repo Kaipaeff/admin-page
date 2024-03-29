@@ -70,7 +70,6 @@ export interface IHeaderProps extends IUserProps {}
 
 export interface IImageProps {
   maxHeight?: string;
-  maxWidth?: string;
   display?: string;
   flexDirection?: string;
   width?: string;
@@ -93,6 +92,7 @@ export interface IInfoProps {
 export interface ITitleProps {
   fontSize?: string;
   marginBottom?: string;
+  color?: string;
 }
 
 export interface IDescrProps {
@@ -106,9 +106,12 @@ export interface IRateProps {
   justifyContent?: string;
   alignItems?: string;
   gap?: string;
+  marginBottom?: string;
 }
 
 export interface IPriceProps {
+  width?: string;
   fontSize?: string;
-  marginRight?: string;
+  marginBottom?: string;
+  textAlign?: string;
 }

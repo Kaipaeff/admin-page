@@ -71,8 +71,8 @@ export const CancelOutlineIconStyles = styled(CancelOutlined)`
 `;
 
 export const ProductItemImageStyles = styled.img<IImageProps>`
-  max-height: ${({ maxHeight }) => maxHeight || '80px'};
-  max-width: ${({ maxWidth }) => maxWidth || '80px'};
+  max-height: ${({ maxHeight }) => maxHeight || '130px'};
+  width: ${({ width }) => width || '70px'};
   margin-left: ${({ marginLeft }) => marginLeft || ''};
   margin-right: ${({ marginRight }) => marginRight || ''};
 `;
@@ -90,14 +90,15 @@ export const ProductItemInfoStyles = styled.div<IInfoProps>`
 export const ProductItemTitleStyles = styled.p<ITitleProps>`
   font-weight: 700;
   font-size: ${({ fontSize }) => fontSize || '16px'};
-  margin-bottom: ${({ marginBottom }) => marginBottom || '4px'};
+  margin-bottom: ${({ marginBottom }) => marginBottom || '8px'};
+  color: ${({ color }) => color || ''};
 `;
 
 export const ProductItemDescrStyles = styled.p<IDescrProps>`
   font-size: 16px;
   font-weight: 500;
   font-size: ${({ fontSize }) => fontSize || '16px'};
-  margin-bottom: ${({ marginBottom }) => marginBottom || '4px'};
+  margin-bottom: ${({ marginBottom }) => marginBottom || '12px'};
 `;
 
 export const ProductItemRatingStyles = styled.p<IRateProps>`
@@ -106,9 +107,12 @@ export const ProductItemRatingStyles = styled.p<IRateProps>`
   justify-content: ${({ justifyContent }) => justifyContent || ''};
   align-items: ${({ alignItems }) => alignItems || ''};
   gap: ${({ gap }) => gap || ''};
+  margin-bottom: ${({ marginBottom }) => marginBottom || '12px'};
 `;
 
 export const ProductItemPriceStyles = styled.p<IPriceProps>`
-  margin-right: ${({ marginRight }) => marginRight || ''};
-  font-size: ${({ fontSize }) => fontSize || '16px'};
+  width: ${({ width }) => width || ''};
+  margin-bottom: ${({ marginBottom }) => marginBottom || ''};
+  font-size: ${({ fontSize }) => fontSize || '18px'};
+  text-align: ${({ textAlign }) => textAlign || ''};
 `;

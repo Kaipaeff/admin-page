@@ -7,7 +7,7 @@ import {
   // Checkbox,
   // Tooltip,
   // Box,
-  // Button,
+  Button,
   // Snackbar,
   // Alert,
   // AlertColor,
@@ -34,7 +34,7 @@ import {
   // SaveOutlineIconStyles,
   // CancelOutlineIconStyles,
 } from './ProductItem.styles';
-import { deleteItemColor, white } from '../../styles/Colors';
+import { deleteItemColor, neonGreen, white } from '../../styles/Colors';
 import { useParams } from 'react-router-dom';
 
 function ProductItem({ product: { title, price, image, description, rating } }: IProductItemPropsType) {
@@ -162,30 +162,28 @@ function ProductItem({ product: { title, price, image, description, rating } }: 
               alignItems: 'center',
               justifyContent: 'space-between',
               height: `${id ? '600px' : ''}`,
-              padding: '24px 32px',
+              padding: '24px 80px',
               '@media (max-width: 640px)': {
                 padding: '12px',
               },
             }}
           >
             <ProductItemImageStyles
-              maxHeight={id && '536px'}
-              maxWidth={id && '400px'}
-              marginLeft={id && '48px'}
+              maxHeight={id && '100%'}
+              width={id && '290px'}
               marginRight={id && '48px'}
               src={image}
             />
-            {!id && <Divider orientation="vertical" variant="fullWidth" sx={{ m: '0 24px', height: '60px' }} />}
+            {!id && <Divider orientation="vertical" variant="fullWidth" sx={{ m: '0 56px', height: '60px' }} />}
 
             <ProductItemInfoStyles
               display={id && 'flex'}
               flexDirection={id && 'column'}
               justifyContent={id && 'center'}
-              maxHeight={id && '500px'}
-              width={id && '650px'}
-              marginRight={id && 'auto'}
+              maxHeight={id && '100%'}
+              width={'100%'}
             >
-              <ProductItemTitleStyles fontSize={id && '22px'} marginBottom={id && '24px'}>
+              <ProductItemTitleStyles fontSize={id && '22px'} marginBottom={id && '24px'} color={neonGreen}>
                 {title}
               </ProductItemTitleStyles>
 
@@ -198,17 +196,31 @@ function ProductItem({ product: { title, price, image, description, rating } }: 
                 flexDirection={'row'}
                 alignItems={'center'}
                 gap={'12px'}
+                marginBottom={id && '24px'}
               >
                 <Rating name="read-only" value={rating.rate} readOnly />
                 {`(${rating.count})`}
               </ProductItemRatingStyles>
+
+              <ProductItemPriceStyles fontSize={id && '32px'} width={'100%'} marginBottom={id && '24px'}>
+                ${price}
+              </ProductItemPriceStyles>
+
+              {id && (
+                <Button variant="contained" color="success" sx={{ width: '160px' }}>
+                  В корзину
+                </Button>
+              )}
             </ProductItemInfoStyles>
 
-            {!id && <Divider orientation="vertical" variant="fullWidth" sx={{ m: '0 24px', height: '60px' }} />}
-
-            <ProductItemPriceStyles fontSize={id && '32px'} marginRight={id && '48px'}>
+            {/* <ProductItemPriceStyles
+              fontSize={id && '32px'}
+              width={'100px'}
+              textAlign={'center'}
+              marginRight={id && '48px'}
+            >
               ${price}
-            </ProductItemPriceStyles>
+            </ProductItemPriceStyles> */}
 
             {/* {!isEditing ? (
               <>
