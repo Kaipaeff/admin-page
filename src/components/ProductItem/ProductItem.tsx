@@ -3,10 +3,11 @@ import {
   Card,
   CardContent,
   Divider,
+  Rating,
   // Checkbox,
   // Tooltip,
   // Box,
-  // Button,
+  Button,
   // Snackbar,
   // Alert,
   // AlertColor,
@@ -23,7 +24,9 @@ import { IProductItemPropsType } from '../../types/Interfaces';
 import {
   ProductItemDescrStyles,
   ProductItemImageStyles,
+  ProductItemInfoStyles,
   ProductItemPriceStyles,
+  ProductItemRatingStyles,
   ProductItemStyles,
   ProductItemTitleStyles,
   // DeleteOutlinedIconStyles,
@@ -31,9 +34,10 @@ import {
   // SaveOutlineIconStyles,
   // CancelOutlineIconStyles,
 } from './ProductItem.styles';
-import { deleteItemColor, white } from '../../styles/Colors';
+import { deleteItemColor, neonGreen, white } from '../../styles/Colors';
+import { useParams } from 'react-router-dom';
 
-function ProductItem({ product: { title, price, image, description } }: IProductItemPropsType) {
+function ProductItem({ product: { title, price, image, description, rating } }: IProductItemPropsType) {
   // const [checked, setChecked] = useState<boolean>(item.completed);
   const [showModal, setShowModal] = useState<boolean>(false);
   // const [notification, setNotification] = useState<INotificationProps>({ open: false, type: '', message: '' });
@@ -41,6 +45,7 @@ function ProductItem({ product: { title, price, image, description } }: IProduct
   // const [editedTask, setEditedTask] = useState<string>(item.title);
 
   const listItemRef = useRef<HTMLDivElement>(null);
+  const { id } = useParams();
 
   // useEffect(() => {
   //   const handleKeyPress = (event: KeyboardEvent) => {
@@ -156,18 +161,67 @@ function ProductItem({ product: { title, price, image, description } }: IProduct
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
+              height: `${id ? '580px' : ''}`,
+              padding: '24px 80px',
               '@media (max-width: 640px)': {
                 padding: '12px',
               },
             }}
           >
-            <ProductItemTitleStyles>{title}</ProductItemTitleStyles>
-            <Divider orientation="vertical" variant="fullWidth" sx={{ m: '0 24px', height: '60px' }} />
-            <ProductItemDescrStyles>{description}</ProductItemDescrStyles>
-            <Divider orientation="vertical" variant="fullWidth" sx={{ m: '0 24px', height: '60px' }} />
-            <ProductItemPriceStyles>{price}</ProductItemPriceStyles>
-            <Divider orientation="vertical" variant="fullWidth" sx={{ m: '0 24px', height: '60px' }} />
-            <ProductItemImageStyles src={image} />
+            <ProductItemImageStyles
+              maxHeight={id && '100%'}
+              width={id && '290px'}
+              marginRight={id && '48px'}
+              src={image}
+            />
+            {!id && <Divider orientation="vertical" variant="fullWidth" sx={{ m: '0 56px', height: '120px' }} />}
+
+            <ProductItemInfoStyles
+              display={id && 'flex'}
+              flexDirection={id && 'column'}
+              justifyContent={id && 'center'}
+              maxHeight={id && '100%'}
+              width={'100%'}
+            >
+              <ProductItemTitleStyles fontSize={id && '22px'} marginBottom={id && '24px'} color={neonGreen}>
+                {title}
+              </ProductItemTitleStyles>
+
+              <ProductItemDescrStyles fontSize={id && '22px'} marginBottom={id && '24px'}>
+                {description}
+              </ProductItemDescrStyles>
+
+              <ProductItemRatingStyles
+                display={'flex'}
+                flexDirection={'row'}
+                alignItems={'center'}
+                gap={'12px'}
+                marginBottom={id && '24px'}
+              >
+                <Rating name="read-only" value={rating.rate} readOnly />
+                {`(${rating.count})`}
+              </ProductItemRatingStyles>
+
+              <ProductItemPriceStyles fontSize={id && '32px'} width={'100%'} marginBottom={id && '24px'}>
+                ${price}
+              </ProductItemPriceStyles>
+
+              {id && (
+                <Button variant="contained" color="success" sx={{ width: '160px' }}>
+                  В корзину
+                </Button>
+              )}
+            </ProductItemInfoStyles>
+
+            {/* <ProductItemPriceStyles
+              fontSize={id && '32px'}
+              width={'100px'}
+              textAlign={'center'}
+              marginRight={id && '48px'}
+            >
+              ${price}
+            </ProductItemPriceStyles> */}
+
             {/* {!isEditing ? (
               <>
                 <Typography

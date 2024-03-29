@@ -1,5 +1,5 @@
 import { memo, useLayoutEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AccountCircleOutlined } from '@mui/icons-material';
 import { IconButton, Typography, Menu, Tooltip, MenuItem } from '@mui/material';
 
@@ -48,7 +48,7 @@ function Header({ user, setUser }: IHeaderProps) {
     if (page === 'Home') {
       navigate('/');
     } else if (user.isAdmin && page === 'Dashboard') {
-      navigate('admin-control');
+      navigate('admin-control/start-page');
     } else if (page === 'Login') {
       const password = prompt('Введите пароль для входа:');
       if (password === '111') {
@@ -57,7 +57,7 @@ function Header({ user, setUser }: IHeaderProps) {
         if (setUser) {
           setUser(_prev => newUser);
         }
-        navigate('admin-control');
+        navigate('admin-control/start-page');
       } else {
         alert('Неверный пароль. Вход запрещен.');
       }
@@ -76,7 +76,9 @@ function Header({ user, setUser }: IHeaderProps) {
   return (
     <HeaderStyles>
       <HeaderContainerStyles>
-        <LogoImage src={logo} alt="Логотип" />
+        <Link to={'/'}>
+          <LogoImage src={logo} alt="Логотип" />
+        </Link>
         <ControlPanelStyles>
           <GreetingTextStyles>{greeting}</GreetingTextStyles>
           <Tooltip title="User Menu">

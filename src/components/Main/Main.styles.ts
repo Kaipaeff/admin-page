@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 export const MainStyles = styled.main`
   display: flex;
   flex-direction: column;
-  width: 1200px;
+  width: 1440px;
   height: 760px;
   margin-top: 100px;
 

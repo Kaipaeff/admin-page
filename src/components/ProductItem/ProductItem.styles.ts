@@ -2,6 +2,7 @@ import { styled } from 'styled-components';
 import { EditOutlined, DeleteOutlined, CheckCircleOutline, CancelOutlined } from '@mui/icons-material';
 
 import { blue, textColor } from '../../styles/Colors';
+import { IDescrProps, IImageProps, IInfoProps, IPriceProps, IRateProps, ITitleProps } from '../../types/Interfaces';
 
 export const ProductItemStyles = styled.div`
   margin-bottom: 24px;
@@ -69,27 +70,49 @@ export const CancelOutlineIconStyles = styled(CancelOutlined)`
   }
 `;
 
-export const ProductItemImageStyles = styled.img`
-  margin-right: 8px;
-  width: 60px;
+export const ProductItemImageStyles = styled.img<IImageProps>`
+  max-height: ${({ maxHeight }) => maxHeight || '130px'};
+  width: ${({ width }) => width || '70px'};
+  margin-left: ${({ marginLeft }) => marginLeft || ''};
+  margin-right: ${({ marginRight }) => marginRight || ''};
 `;
 
-export const ProductItemTitleStyles = styled.p`
-  width: 200px;
-  font-size: 16px;
+export const ProductItemInfoStyles = styled.div<IInfoProps>`
+  display: ${({ display }) => display || ''};
+  flex-direction: ${({ flexDirection }) => flexDirection || 'row'};
+  justify-content: ${({ justifyContent }) => justifyContent || ''};
+  height: ${({ maxHeight }) => maxHeight || ''};
+  width: ${({ width }) => width || ''};
+  padding: ${({ padding }) => padding || ''};
+  margin-right: ${({ marginRight }) => marginRight || ''};
+`;
+
+export const ProductItemTitleStyles = styled.p<ITitleProps>`
   font-weight: 700;
-  margin-left: 12px;
+  font-size: ${({ fontSize }) => fontSize || '16px'};
+  margin-bottom: ${({ marginBottom }) => marginBottom || '8px'};
+  color: ${({ color }) => color || ''};
 `;
 
-export const ProductItemDescrStyles = styled.p`
-  width: 800px;
+export const ProductItemDescrStyles = styled.p<IDescrProps>`
   font-size: 16px;
   font-weight: 500;
+  font-size: ${({ fontSize }) => fontSize || '16px'};
+  margin-bottom: ${({ marginBottom }) => marginBottom || '12px'};
 `;
 
-export const ProductItemPriceStyles = styled.p`
-  width: 50px;
-  font-size: 16px;
-  font-weight: 700;
-  text-align: center;
+export const ProductItemRatingStyles = styled.p<IRateProps>`
+  display: ${({ display }) => display || ''};
+  flex-direction: ${({ flexDirection }) => flexDirection || 'row'};
+  justify-content: ${({ justifyContent }) => justifyContent || ''};
+  align-items: ${({ alignItems }) => alignItems || ''};
+  gap: ${({ gap }) => gap || ''};
+  margin-bottom: ${({ marginBottom }) => marginBottom || '12px'};
+`;
+
+export const ProductItemPriceStyles = styled.p<IPriceProps>`
+  width: ${({ width }) => width || ''};
+  margin-bottom: ${({ marginBottom }) => marginBottom || ''};
+  font-size: ${({ fontSize }) => fontSize || '18px'};
+  text-align: ${({ textAlign }) => textAlign || ''};
 `;

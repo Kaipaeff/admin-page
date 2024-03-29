@@ -1,5 +1,11 @@
+import { CategoriesPageStyles } from './CategoriesPage.styles';
+
 function CategoriesPage() {
-  return <h2>Добро пожаловать на страницу Категории!</h2>;
+  return (
+    <CategoriesPageStyles>
+      <p>Здесь пока пусто</p>
+    </CategoriesPageStyles>
+  );
 }
 
 export default CategoriesPage;

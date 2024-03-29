@@ -1,5 +1,11 @@
+import { UsersPageStyles } from './UsersPage.styles';
+
 function UsersPage() {
-  return <h2>Добро пожаловать на страницу Пользователи!</h2>;
+  return (
+    <UsersPageStyles>
+      <p>Здесь пока пусто</p>
+    </UsersPageStyles>
+  );
 }
 
 export default UsersPage;
