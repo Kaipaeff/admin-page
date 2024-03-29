@@ -33,7 +33,7 @@ import {
 } from './ProductItem.styles';
 import { deleteItemColor, white } from '../../styles/Colors';
 
-function ProductItem({ product }: IProductItemPropsType) {
+function ProductItem({ product: { title, price, image, description } }: IProductItemPropsType) {
   // const [checked, setChecked] = useState<boolean>(item.completed);
   const [showModal, setShowModal] = useState<boolean>(false);
   // const [notification, setNotification] = useState<INotificationProps>({ open: false, type: '', message: '' });
@@ -161,13 +161,13 @@ function ProductItem({ product }: IProductItemPropsType) {
               },
             }}
           >
-            <ProductItemTitleStyles>{product?.title}</ProductItemTitleStyles>
+            <ProductItemTitleStyles>{title}</ProductItemTitleStyles>
             <Divider orientation="vertical" variant="fullWidth" sx={{ m: '0 24px', height: '60px' }} />
-            <ProductItemDescrStyles>{product?.description}</ProductItemDescrStyles>
+            <ProductItemDescrStyles>{description}</ProductItemDescrStyles>
             <Divider orientation="vertical" variant="fullWidth" sx={{ m: '0 24px', height: '60px' }} />
-            <ProductItemPriceStyles>{product?.price}</ProductItemPriceStyles>
+            <ProductItemPriceStyles>{price}</ProductItemPriceStyles>
             <Divider orientation="vertical" variant="fullWidth" sx={{ m: '0 24px', height: '60px' }} />
-            <ProductItemImageStyles src={product?.image} />
+            <ProductItemImageStyles src={image} />
             {/* {!isEditing ? (
               <>
                 <Typography
