@@ -20,5 +20,4 @@ export const ProductsItemsStyles = styled.div`
   flex-direction: column;
   width: 100%;
   height: 100%;
-  padding: 2px;
 `;

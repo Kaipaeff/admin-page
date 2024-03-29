@@ -23,9 +23,10 @@ function SingleProductPage({ allProducts }: ISingleProductPageProps) {
         style={{
           display: 'flex',
           gap: '8px',
-          marginBottom: '11px',
+          marginBottom: '16px',
           marginRight: 'auto',
           color: mainGrey,
+          height: '32px',
         }}
       >
         <KeyboardBackspace />

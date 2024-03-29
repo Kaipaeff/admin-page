@@ -13,7 +13,7 @@ export const HeaderStyles = styled.header`
   height: 80px;
   background-color: ${white};
   /* box-shadow: 0 4px 12px 3px rgba(2, 9, 51, 0.07); */
-  /* z-index: 3; */
+  z-index: 3;
 
   @media (max-width: 640px) {
     padding: 0 12px 4px;

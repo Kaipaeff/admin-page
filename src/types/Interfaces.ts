@@ -58,7 +58,7 @@ export interface IUser {
 
 export interface IUserProps {
   user: IUser;
-  setUser?: (user: IUser) => void;
+  setUser?: React.Dispatch<React.SetStateAction<IUser>>;
 }
 
 export interface ISingleProductPageProps extends Pick<IProductsProps, 'allProducts'>, IUserProps {}
