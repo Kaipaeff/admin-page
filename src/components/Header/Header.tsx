@@ -32,7 +32,7 @@ function Header({ user, setUser }: IHeaderProps) {
     if (user.isAdmin) {
       setGreeting('Привет, Админ!');
     } else {
-      setGreeting('Добро пожаловать!');
+      setGreeting('Добро пожаловать, Гость!');
     }
   }, [user]);
 

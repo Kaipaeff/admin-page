@@ -11,6 +11,10 @@ import AdminControlPage from './Pages/AdminControlPage/AdminControlPage';
 import HomePage from './Pages/HomePage/HomePage';
 import NotFoundPage from './Pages/NotFoundPage/NotFoundPage';
 import SingleProductPage from './Pages/SingleProductPage/SingleProductPage';
+import ReportsPage from './Pages/Reports/ReportsPage';
+import UsersPage from './Pages/Users/UsersPage';
+import CategoriesPage from './Pages/Categories/CategoriesPage';
+import OrdersPage from './Pages/Orders/OrdersPage';
 
 function App() {
   const [user, setUser] = useState<IUser>({ login: 'Admin', password: '123', isAdmin: false });
@@ -29,7 +33,15 @@ function App() {
         <Route path="/" element={<Layout user={user} setUser={setUser} />}>
           <Route index element={<HomePage allProducts={allProducts} user={user} />} />
           <Route path="admin-control" element={<AdminControlPage allProducts={allProducts} user={user} />}>
-            <Route path="products" element={<Products allProducts={allProducts} />} />
+            <Route path="users" element={<UsersPage />} />
+            <Route path="categories" element={<CategoriesPage />} />
+
+            <Route path="products" element={<Products allProducts={allProducts} />}>
+              <Route path=":id" element={<SingleProductPage allProducts={allProducts} user={user} />} />
+            </Route>
+
+            <Route path="orders" element={<OrdersPage />} />
+            <Route path="reports" element={<ReportsPage />} />
           </Route>
           <Route path="products/:id" element={<SingleProductPage allProducts={allProducts} user={user} />} />
           <Route path="*" element={<NotFoundPage />} />
