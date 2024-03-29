@@ -3,6 +3,7 @@ import {
   Card,
   CardContent,
   Divider,
+  Rating,
   // Checkbox,
   // Tooltip,
   // Box,
@@ -23,7 +24,9 @@ import { IProductItemPropsType } from '../../types/Interfaces';
 import {
   ProductItemDescrStyles,
   ProductItemImageStyles,
+  ProductItemInfoStyles,
   ProductItemPriceStyles,
+  ProductItemRatingStyles,
   ProductItemStyles,
   ProductItemTitleStyles,
   // DeleteOutlinedIconStyles,
@@ -32,8 +35,9 @@ import {
   // CancelOutlineIconStyles,
 } from './ProductItem.styles';
 import { deleteItemColor, white } from '../../styles/Colors';
+import { useParams } from 'react-router-dom';
 
-function ProductItem({ product: { title, price, image, description } }: IProductItemPropsType) {
+function ProductItem({ product: { title, price, image, description, rating } }: IProductItemPropsType) {
   // const [checked, setChecked] = useState<boolean>(item.completed);
   const [showModal, setShowModal] = useState<boolean>(false);
   // const [notification, setNotification] = useState<INotificationProps>({ open: false, type: '', message: '' });
@@ -41,6 +45,7 @@ function ProductItem({ product: { title, price, image, description } }: IProduct
   // const [editedTask, setEditedTask] = useState<string>(item.title);
 
   const listItemRef = useRef<HTMLDivElement>(null);
+  const { id } = useParams();
 
   // useEffect(() => {
   //   const handleKeyPress = (event: KeyboardEvent) => {
@@ -156,18 +161,55 @@ function ProductItem({ product: { title, price, image, description } }: IProduct
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
+              height: `${id ? '600px' : ''}`,
+              padding: '24px 32px',
               '@media (max-width: 640px)': {
                 padding: '12px',
               },
             }}
           >
-            <ProductItemTitleStyles>{title}</ProductItemTitleStyles>
-            <Divider orientation="vertical" variant="fullWidth" sx={{ m: '0 24px', height: '60px' }} />
-            <ProductItemDescrStyles>{description}</ProductItemDescrStyles>
-            <Divider orientation="vertical" variant="fullWidth" sx={{ m: '0 24px', height: '60px' }} />
-            <ProductItemPriceStyles>{price}</ProductItemPriceStyles>
-            <Divider orientation="vertical" variant="fullWidth" sx={{ m: '0 24px', height: '60px' }} />
-            <ProductItemImageStyles src={image} />
+            <ProductItemImageStyles
+              maxHeight={id && '536px'}
+              maxWidth={id && '400px'}
+              marginLeft={id && '48px'}
+              marginRight={id && '48px'}
+              src={image}
+            />
+            {!id && <Divider orientation="vertical" variant="fullWidth" sx={{ m: '0 24px', height: '60px' }} />}
+
+            <ProductItemInfoStyles
+              display={id && 'flex'}
+              flexDirection={id && 'column'}
+              justifyContent={id && 'center'}
+              maxHeight={id && '500px'}
+              width={id && '650px'}
+              marginRight={id && 'auto'}
+            >
+              <ProductItemTitleStyles fontSize={id && '22px'} marginBottom={id && '24px'}>
+                {title}
+              </ProductItemTitleStyles>
+
+              <ProductItemDescrStyles fontSize={id && '22px'} marginBottom={id && '24px'}>
+                {description}
+              </ProductItemDescrStyles>
+
+              <ProductItemRatingStyles
+                display={'flex'}
+                flexDirection={'row'}
+                alignItems={'center'}
+                gap={'12px'}
+              >
+                <Rating name="read-only" value={rating.rate} readOnly />
+                {`(${rating.count})`}
+              </ProductItemRatingStyles>
+            </ProductItemInfoStyles>
+
+            {!id && <Divider orientation="vertical" variant="fullWidth" sx={{ m: '0 24px', height: '60px' }} />}
+
+            <ProductItemPriceStyles fontSize={id && '32px'} marginRight={id && '48px'}>
+              ${price}
+            </ProductItemPriceStyles>
+
             {/* {!isEditing ? (
               <>
                 <Typography

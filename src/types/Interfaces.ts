@@ -14,6 +14,7 @@ export type IProductItemPropsType = {
       count: number;
     };
   };
+  maxHeight?: string;
 };
 
 export type IProduct = {
@@ -66,3 +67,48 @@ export interface IAdminControlPageProps extends Pick<IProductsProps, 'allProduct
 export interface IHomePageProps extends IProductsProps, IUserProps {}
 export interface ILayoutProps extends IUserProps {}
 export interface IHeaderProps extends IUserProps {}
+
+export interface IImageProps {
+  maxHeight?: string;
+  maxWidth?: string;
+  display?: string;
+  flexDirection?: string;
+  width?: string;
+  padding?: string;
+  fontSize?: string;
+  marginLeft?: string;
+  marginRight?: string;
+}
+
+export interface IInfoProps {
+  display?: string;
+  flexDirection?: string;
+  justifyContent?: string;
+  maxHeight?: string;
+  width?: string;
+  padding?: string;
+  marginRight?: string;
+}
+
+export interface ITitleProps {
+  fontSize?: string;
+  marginBottom?: string;
+}
+
+export interface IDescrProps {
+  fontSize?: string;
+  marginBottom?: string;
+}
+
+export interface IRateProps {
+  display?: string;
+  flexDirection?: string;
+  justifyContent?: string;
+  alignItems?: string;
+  gap?: string;
+}
+
+export interface IPriceProps {
+  fontSize?: string;
+  marginRight?: string;
+}

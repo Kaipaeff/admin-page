@@ -11,7 +11,7 @@ function Products({ allProducts }: IProductsProps) {
   const { id } = useParams();
   const match = useMatch('/admin-control/products');
 
-  const path = (id: number) => {
+  const pathUrl = (id: number) => {
     return match ? `/admin-control/products/${id}` : `/products/${id}`;
   };
 
@@ -22,7 +22,7 @@ function Products({ allProducts }: IProductsProps) {
           <Outlet />
         ) : (
           allProducts.map(item => (
-            <Link key={item.id} to={path(item.id)}>
+            <Link key={item.id} to={pathUrl(item.id)}>
               <ProductItem key={item.id} product={item} />
             </Link>
           ))
