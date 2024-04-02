@@ -5,7 +5,6 @@ import { blue, neonGreen, textColor } from '../../styles/Colors';
 import {
   IDescrProps,
   IImageContainerProps,
-  IImageProps,
   IInfoProps,
   IPriceProps,
   IRateProps,
@@ -86,11 +85,6 @@ export const ProductItemImageContainerStyles = styled.div<IImageContainerProps>`
   align-items: center;
   justify-content: center;
   height: 120px;
-  width: 70px;
-`;
-
-export const ProductItemImageStyles = styled.img<IImageProps>`
-  max-height: 100%;
   width: ${({ width }) => width || '70px'};
 `;
 
