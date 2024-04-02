@@ -11,7 +11,7 @@ import { AdminPanelSettingsIcon } from '../../components/Toolbar/Toolbar.styles'
 function AdminControlPage({ user }: IAdminControlPageProps) {
   return (
     <>
-      <Toolbar title={'Панель управления'} icon={<AdminPanelSettingsIcon />} showServicesButtons={true} />
+      <Toolbar title={'Панель управления'} icon={<AdminPanelSettingsIcon />} />
       <Divider variant="fullWidth" sx={{ mb: '24px' }} />
       <AdminControlContentStyles>
         <NavMenu />

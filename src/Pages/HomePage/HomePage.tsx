@@ -9,7 +9,7 @@ import { HomePageIcon } from '../../components/Toolbar/Toolbar.styles';
 function HomePage({ allProducts, user }: IHomePageProps) {
   return (
     <>
-      <Toolbar title={'Главная'} icon={<HomePageIcon />} showServicesButtons={false} />
+      <Toolbar title={'Главная'} icon={<HomePageIcon />} />
       <Divider variant="fullWidth" sx={{ mb: '24px' }} />
       <Products allProducts={allProducts} />
     </>

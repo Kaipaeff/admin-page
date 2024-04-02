@@ -1,21 +1,24 @@
+import { useState } from 'react';
+import { useMatch } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 
 import { IToolbarProps } from '../../types/Interfaces';
+
 import {
   ToolbarControlButtonsStyles,
   ToolbarServicesButtonsStyles,
   ToolbarStyles,
   ToolbarTitleStyles,
 } from './Toolbar.styles';
-import { useState } from 'react';
+
 import lettersDown from '../../assets/img/icons/sort-az.svg';
 import lettersUp from '../../assets/img/icons/sort-za.svg';
 import numbersDown from '../../assets/img/icons/sort-9-0.svg';
 import numbersUp from '../../assets/img/icons/sort-0-9.svg';
 
-function Toolbar({ title, icon, button, showServicesButtons }: IToolbarProps) {
+function Toolbar({ title, icon, button }: IToolbarProps) {
   const [sortOfLetters, setSortOfLetters] = useState(true);
   const [sortOfPrice, setSortOfPrice] = useState(false);
 
@@ -27,6 +30,8 @@ function Toolbar({ title, icon, button, showServicesButtons }: IToolbarProps) {
     setSortOfPrice(prev => !prev);
   };
 
+  const match = useMatch('/admin-control/products');
+
   return (
     <ToolbarStyles>
       <ToolbarTitleStyles>
@@ -36,7 +41,7 @@ function Toolbar({ title, icon, button, showServicesButtons }: IToolbarProps) {
       </ToolbarTitleStyles>
 
       <ToolbarControlButtonsStyles>
-        {showServicesButtons && (
+        {match && (
           <ToolbarServicesButtonsStyles>
             <Button variant="outlined" color="inherit" size="small" sx={{ pr: '12px' }}>
               <AddIcon sx={{ mr: '4px' }} />

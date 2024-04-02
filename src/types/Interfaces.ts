@@ -1,22 +1,5 @@
 import { ReactNode } from 'react';
 
-export type IProductItemPropsType = {
-  index?: number;
-  product: {
-    id: number;
-    title: string;
-    price: number;
-    description: string;
-    category: string;
-    image: string;
-    rating: {
-      rate: number;
-      count: number;
-    };
-  };
-  // maxHeight?: string;
-};
-
 export type IProduct = {
   id: number;
   title: string;
@@ -30,6 +13,11 @@ export type IProduct = {
   };
 };
 
+export type IProductItemPropsType = {
+  index?: number;
+  product: IProduct;
+};
+
 export interface IProductsProps {
   allProducts: IProduct[] | [];
   setAllProducts?: React.Dispatch<React.SetStateAction<IProduct[]>>;
@@ -39,7 +27,6 @@ export interface IToolbarProps {
   title?: string;
   icon?: ReactNode;
   button?: ReactNode;
-  showServicesButtons: boolean;
 }
 
 export interface IMainProps {
@@ -80,7 +67,6 @@ export interface IInfoProps {
   justifyContent?: string;
   maxHeight?: string;
   width?: string;
-  padding?: string;
   $gap?: string;
 }
 
