@@ -19,7 +19,7 @@ export const Skeleton: React.FC<MyLoaderProps> = () => (
         <rect x="260" y="38" rx="3" ry="3" width="400" height="16" />
         <rect x="260" y="73" rx="3" ry="3" width="870" height="12" />
         <rect x="260" y="102" rx="3" ry="3" width="100" height="22" />
-        <rect x="206" y="36" rx="3" ry="3" width="3" height="100" />
+        <rect x="205" y="26" rx="3" ry="3" width="2" height="120" />
         <rect x="80" y="34" rx="3" ry="3" width="70" height="100" />
       </ContentLoader>
     </Card>

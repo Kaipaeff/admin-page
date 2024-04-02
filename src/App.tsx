@@ -1,4 +1,4 @@
-import { useState, useEffect, useLayoutEffect } from 'react';
+import { useState, useLayoutEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import { IProduct, IUser } from './types/Interfaces';
