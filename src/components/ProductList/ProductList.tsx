@@ -5,7 +5,7 @@ import {} from 'react-router-dom';
 import ProductItem from '../ProductItem/ProductItem';
 
 import { IProductsProps } from '../../types/Interfaces';
-import { ProductsItemsStyles, ProductsStyles } from './Products.styles';
+import { ProductsItemsStyles, ProductsStyles } from './ProductList.styles';
 
 function Products({ allProducts }: IProductsProps) {
   const { id } = useParams();
