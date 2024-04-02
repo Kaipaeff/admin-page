@@ -9,7 +9,7 @@ export const Skeleton: React.FC<MyLoaderProps> = () => (
   <ProductItemStyles>
     <Card sx={{ maxWidth: 1 }}>
       <ContentLoader
-        speed={2}
+        speed={1}
         width={1232}
         height={162}
         viewBox="0 0 1232 162"
