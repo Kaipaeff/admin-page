@@ -21,6 +21,7 @@ export type IProductItemPropsType = {
 export interface IProductsProps {
   allProducts: IProduct[] | [];
   setAllProducts?: React.Dispatch<React.SetStateAction<IProduct[]>>;
+  loading?: boolean;
 }
 
 export interface IToolbarProps extends Partial<Pick<IProductsProps, 'allProducts'>> {
@@ -55,6 +56,17 @@ export interface IHomePageProps extends IProductsProps, IUserProps {}
 export interface ILayoutProps extends IUserProps {}
 export interface IHeaderProps extends IUserProps {}
 
+export interface IImageContainerProps {
+  display?: string;
+  fleGrow?: number;
+  flexBasis?: number;
+  height?: string;
+  width?: string;
+  flexShrink?: number;
+  alignItems?: string;
+  justifyContent?: string;
+}
+
 export interface IImageProps {
   maxHeight?: string;
   width?: string;
@@ -77,6 +89,11 @@ export interface ITitleProps {
 
 export interface IDescrProps {
   fontSize?: string;
+  overflow?: string;
+  $textOverflow?: string;
+  display?: string;
+  $webkitLineClamp?: string;
+  $webkitBoxOrient?: string;
 }
 
 export interface IRateProps {

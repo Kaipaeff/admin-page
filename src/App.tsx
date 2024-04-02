@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useLayoutEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import { IProduct, IUser } from './types/Interfaces';
@@ -21,12 +21,22 @@ import { fetchProductsApi } from './services/product-api.service';
 function App() {
   const [user, setUser] = useState<IUser>({ login: 'Admin', password: '123', isAdmin: false });
   const [allProducts, setAllProducts] = useState<IProduct[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
 
-  useEffect(() => {
-    (async () => {
-      const allProductsApi: IProduct[] = await fetchProductsApi();
-      setAllProducts(allProductsApi);
-    })();
+  useLayoutEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        setLoading(true);
+        await new Promise(resolve => setTimeout(resolve, 1500));
+        const allProductsApi: IProduct[] = await fetchProductsApi();
+        setAllProducts(allProductsApi);
+      } catch (error) {
+        console.error('Ошибка при получении данных с сервера:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchProducts();
   }, []);
 
   return (
@@ -34,13 +44,13 @@ function App() {
       <GlobalStyles />
       <Routes>
         <Route path="/" element={<Layout user={user} setUser={setUser} />}>
-          <Route index element={<HomePage allProducts={allProducts} user={user} />} />
+          <Route index element={<HomePage allProducts={allProducts} user={user} loading={loading} />} />
           <Route path="admin-control" element={<AdminControlPage allProducts={allProducts} />}>
             <Route path="start-page" element={<StartPage />} />
             <Route path="users" element={<UsersPage />} />
             <Route path="categories" element={<CategoriesPage />} />
 
-            <Route path="products" element={<ProductList allProducts={allProducts} />}>
+            <Route path="products" element={<ProductList allProducts={allProducts} loading={loading} />}>
               <Route path=":id" element={<SingleProductPage allProducts={allProducts} user={user} />} />
             </Route>
 
