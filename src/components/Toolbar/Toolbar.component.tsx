@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useMatch } from 'react-router-dom';
+
 import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
@@ -17,8 +18,9 @@ import lettersDown from '../../assets/img/icons/sort-az.svg';
 import lettersUp from '../../assets/img/icons/sort-za.svg';
 import numbersDown from '../../assets/img/icons/sort-9-0.svg';
 import numbersUp from '../../assets/img/icons/sort-0-9.svg';
+import { downloadList } from '../../utilities/downloadList';
 
-function Toolbar({ title, icon, button }: IToolbarProps) {
+function Toolbar({ title, icon, button, allProducts }: IToolbarProps) {
   const [sortOfLetters, setSortOfLetters] = useState(true);
   const [sortOfPrice, setSortOfPrice] = useState(false);
 
@@ -28,6 +30,12 @@ function Toolbar({ title, icon, button }: IToolbarProps) {
 
   const handleNumbersSort = () => {
     setSortOfPrice(prev => !prev);
+  };
+
+  const handleDownload = () => {
+    if (allProducts) {
+      downloadList(allProducts);
+    }
   };
 
   const match = useMatch('/admin-control/products');
@@ -48,7 +56,7 @@ function Toolbar({ title, icon, button }: IToolbarProps) {
               Добавить товар
             </Button>
 
-            <Button variant="outlined" color="inherit" size="small" sx={{ pr: '12px' }}>
+            <Button onClick={handleDownload} variant="outlined" color="inherit" size="small" sx={{ pr: '12px' }}>
               <FileDownloadOutlinedIcon sx={{ mr: '4px' }} />
               Выгрузить список
             </Button>

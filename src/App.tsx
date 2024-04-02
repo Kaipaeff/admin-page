@@ -35,7 +35,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout user={user} setUser={setUser} />}>
           <Route index element={<HomePage allProducts={allProducts} user={user} />} />
-          <Route path="admin-control" element={<AdminControlPage allProducts={allProducts} user={user} />}>
+          <Route path="admin-control" element={<AdminControlPage allProducts={allProducts} />}>
             <Route path="start-page" element={<StartPage />} />
             <Route path="users" element={<UsersPage />} />
             <Route path="categories" element={<CategoriesPage />} />

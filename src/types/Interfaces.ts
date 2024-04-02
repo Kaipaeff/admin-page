@@ -23,7 +23,7 @@ export interface IProductsProps {
   setAllProducts?: React.Dispatch<React.SetStateAction<IProduct[]>>;
 }
 
-export interface IToolbarProps {
+export interface IToolbarProps extends Partial<Pick<IProductsProps, 'allProducts'>> {
   title?: string;
   icon?: ReactNode;
   button?: ReactNode;
@@ -50,7 +50,7 @@ export interface IUserProps {
 }
 
 export interface ISingleProductPageProps extends Pick<IProductsProps, 'allProducts'>, IUserProps {}
-export interface IAdminControlPageProps extends Pick<IProductsProps, 'allProducts'>, IUserProps {}
+export interface IAdminControlPageProps extends Pick<IProductsProps, 'allProducts'> {}
 export interface IHomePageProps extends IProductsProps, IUserProps {}
 export interface ILayoutProps extends IUserProps {}
 export interface IHeaderProps extends IUserProps {}
