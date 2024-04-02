@@ -34,7 +34,7 @@ import {
   // SaveOutlineIconStyles,
   // CancelOutlineIconStyles,
 } from './ProductItem.styles';
-import { deleteItemColor, neonGreen, white } from '../../styles/Colors';
+import { deleteItemColor, mediumGrey, white } from '../../styles/Colors';
 import { useParams } from 'react-router-dom';
 
 function ProductItem({ product: { title, price, image, description, rating } }: IProductItemPropsType) {
@@ -161,6 +161,7 @@ function ProductItem({ product: { title, price, image, description, rating } }: 
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
+              gap: `${id ? '48px' : ''}`,
               height: `${id ? '580px' : ''}`,
               padding: '24px 80px',
               '@media (max-width: 640px)': {
@@ -168,42 +169,25 @@ function ProductItem({ product: { title, price, image, description, rating } }: 
               },
             }}
           >
-            <ProductItemImageStyles
-              maxHeight={id && '100%'}
-              width={id && '290px'}
-              marginRight={id && '48px'}
-              src={image}
-            />
+            <ProductItemImageStyles width={id && '290px'} src={image} />
+
             {!id && <Divider orientation="vertical" variant="fullWidth" sx={{ m: '0 56px', height: '120px' }} />}
 
-            <ProductItemInfoStyles
-              display={id && 'flex'}
-              flexDirection={id && 'column'}
-              justifyContent={id && 'center'}
-              maxHeight={id && '100%'}
-              width={'100%'}
-            >
-              <ProductItemTitleStyles fontSize={id && '22px'} marginBottom={id && '24px'} color={neonGreen}>
-                {title}
-              </ProductItemTitleStyles>
+            <ProductItemInfoStyles $gap={id && '24px'}>
+              <ProductItemTitleStyles fontSize={id && '22px'}>{title}</ProductItemTitleStyles>
 
-              <ProductItemDescrStyles fontSize={id && '22px'} marginBottom={id && '24px'}>
-                {description}
-              </ProductItemDescrStyles>
+              <ProductItemDescrStyles fontSize={id && '18px'}>{description}</ProductItemDescrStyles>
 
-              <ProductItemRatingStyles
-                display={'flex'}
-                flexDirection={'row'}
-                alignItems={'center'}
-                gap={'12px'}
-                marginBottom={id && '24px'}
-              >
-                <Rating name="read-only" value={rating.rate} readOnly />
-                {`(${rating.count})`}
-              </ProductItemRatingStyles>
+              {id && (
+                <ProductItemRatingStyles>
+                  <Rating name="read-only" value={rating.rate} readOnly />
+                  {`(${rating.count})`}
+                </ProductItemRatingStyles>
+              )}
 
-              <ProductItemPriceStyles fontSize={id && '32px'} width={'100%'} marginBottom={id && '24px'}>
-                ${price}
+              <ProductItemPriceStyles fontSize={id && '32px'}>
+                <sup style={{ color: mediumGrey, fontSize: '0.7em', marginRight: '4px' }}>$</sup>
+                {price.toFixed(2)}
               </ProductItemPriceStyles>
 
               {id && (

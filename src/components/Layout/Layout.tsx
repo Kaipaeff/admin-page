@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import Header from '../Header/Header';
@@ -18,4 +17,4 @@ function Layout({ user, setUser }: ILayoutProps) {
   );
 }
 
-export default memo(Layout);
+export default Layout;

@@ -5,7 +5,7 @@ import { IProduct, IUser } from './types/Interfaces';
 import { GlobalStyles } from './styles/GlobalStyles';
 
 import Layout from './components/Layout/Layout';
-import Products from './components/Products/Products';
+import ProductList from './components/ProductList/ProductList';
 
 import AdminControlPage from './Pages/AdminControlPage/AdminControlPage';
 import HomePage from './Pages/HomePage/HomePage';
@@ -16,15 +16,17 @@ import UsersPage from './Pages/Users/UsersPage';
 import CategoriesPage from './Pages/Categories/CategoriesPage';
 import OrdersPage from './Pages/Orders/OrdersPage';
 import StartPage from './Pages/StartPage/StartPage';
+import { fetchProductsApi } from './services/product-api.service';
 
 function App() {
   const [user, setUser] = useState<IUser>({ login: 'Admin', password: '123', isAdmin: false });
   const [allProducts, setAllProducts] = useState<IProduct[]>([]);
 
   useEffect(() => {
-    fetch('https://fakestoreapi.com/products')
-      .then(res => res.json())
-      .then(data => setAllProducts(data));
+    (async () => {
+      const allProductsApi: IProduct[] = await fetchProductsApi();
+      setAllProducts(allProductsApi);
+    })();
   }, []);
 
   return (
@@ -38,7 +40,7 @@ function App() {
             <Route path="users" element={<UsersPage />} />
             <Route path="categories" element={<CategoriesPage />} />
 
-            <Route path="products" element={<Products allProducts={allProducts} />}>
+            <Route path="products" element={<ProductList allProducts={allProducts} />}>
               <Route path=":id" element={<SingleProductPage allProducts={allProducts} user={user} />} />
             </Route>
 

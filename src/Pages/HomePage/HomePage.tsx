@@ -1,6 +1,6 @@
 import { Divider } from '@mui/material';
 
-import Products from '../../components/Products/Products';
+import Products from '../../components/ProductList/ProductList';
 import Toolbar from '../../components/Toolbar/Toolbar.component';
 
 import { IHomePageProps } from '../../types/Interfaces';
