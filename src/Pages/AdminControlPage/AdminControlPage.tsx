@@ -8,10 +8,10 @@ import { IAdminControlPageProps } from '../../types/Interfaces';
 import { AdminControlContentStyles } from './AdminControlPage.styles';
 import { AdminPanelSettingsIcon } from '../../components/Toolbar/Toolbar.styles';
 
-function AdminControlPage({ user }: IAdminControlPageProps) {
+function AdminControlPage({ allProducts }: IAdminControlPageProps) {
   return (
     <>
-      <Toolbar title={'Панель управления'} icon={<AdminPanelSettingsIcon />} showServicesButtons={true} />
+      <Toolbar title={'Панель управления'} icon={<AdminPanelSettingsIcon />} allProducts={allProducts} />
       <Divider variant="fullWidth" sx={{ mb: '24px' }} />
       <AdminControlContentStyles>
         <NavMenu />
