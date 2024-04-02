@@ -23,6 +23,7 @@ import { IProductItemPropsType } from '../../types/Interfaces';
 
 import {
   ProductItemDescrStyles,
+  ProductItemImageContainerStyles,
   ProductItemImageStyles,
   ProductItemInfoStyles,
   ProductItemPriceStyles,
@@ -169,14 +170,25 @@ function ProductItem({ product: { title, price, image, description, rating } }: 
               },
             }}
           >
-            <ProductItemImageStyles width={id && '290px'} src={image} />
+            <ProductItemImageContainerStyles>
+              <ProductItemImageStyles width={id && '290px'} src={image} />
+            </ProductItemImageContainerStyles>
 
             {!id && <Divider orientation="vertical" variant="fullWidth" sx={{ m: '0 56px', height: '120px' }} />}
 
             <ProductItemInfoStyles $gap={id && '24px'}>
               <ProductItemTitleStyles fontSize={id && '22px'}>{title}</ProductItemTitleStyles>
 
-              <ProductItemDescrStyles fontSize={id && '18px'}>{description}</ProductItemDescrStyles>
+              <ProductItemDescrStyles
+                fontSize={id && '18px'}
+                overflow={!id ? 'hidden' : 'visible'}
+                $textOverflow={!id ? 'ellipsis' : 'clip'}
+                display={!id ? '-webkit-box' : 'flex'}
+                $webkitLineClamp={!id ? '1' : 'auto'}
+                $webkitBoxOrient={!id ? 'vertical' : 'inherit'}
+              >
+                {description}
+              </ProductItemDescrStyles>
 
               {id && (
                 <ProductItemRatingStyles>
@@ -196,8 +208,10 @@ function ProductItem({ product: { title, price, image, description, rating } }: 
                 </Button>
               )}
             </ProductItemInfoStyles>
+          </CardContent>
+        </Card>
 
-            {/* <ProductItemPriceStyles
+        {/* <ProductItemPriceStyles
               fontSize={id && '32px'}
               width={'100px'}
               textAlign={'center'}
@@ -206,7 +220,7 @@ function ProductItem({ product: { title, price, image, description, rating } }: 
               ${price}
             </ProductItemPriceStyles> */}
 
-            {/* {!isEditing ? (
+        {/* {!isEditing ? (
               <>
                 <Typography
                   variant="body1"
@@ -223,7 +237,7 @@ function ProductItem({ product: { title, price, image, description, rating } }: 
                 >
                   {item.title}
                 </Typography> */}
-            {/* <Tooltip title="Готово" placement="top">
+        {/* <Tooltip title="Готово" placement="top">
                   <Checkbox
                     checked={checked}
                     onChange={handleChange}
@@ -236,7 +250,7 @@ function ProductItem({ product: { title, price, image, description, rating } }: 
                     }}
                   />
                 </Tooltip> */}
-            {/* <Tooltip title="Изменить" placement="top">
+        {/* <Tooltip title="Изменить" placement="top">
                   <EditOutlinedIconStyles
                     onClick={handleEdit}
                     sx={{
@@ -248,19 +262,17 @@ function ProductItem({ product: { title, price, image, description, rating } }: 
                     }}
                   />
                 </Tooltip> */}
-            {/* <Tooltip title="Удалить" placement="top">
+        {/* <Tooltip title="Удалить" placement="top">
                   <DeleteOutlinedIconStyles onClick={() => handleDelete()} />
                 </Tooltip> */}
-            {/* </>
+        {/* </>
             ) : (
               <> */}
-            {/* <InputStyles value={editedTask} onChange={e => setEditedTask(e.target.value)} /> */}
-            {/* <SaveOutlineIconStyles onClick={handleSave} />
+        {/* <InputStyles value={editedTask} onChange={e => setEditedTask(e.target.value)} /> */}
+        {/* <SaveOutlineIconStyles onClick={handleSave} />
                 <CancelOutlineIconStyles onClick={handleCancel} /> */}
-            {/* </> */}
-            {/* )} */}
-          </CardContent>
-        </Card>
+        {/* </> */}
+        {/* )} */}
 
         {/* <Snackbar
           open={notification.open}

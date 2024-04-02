@@ -2,7 +2,15 @@ import { styled } from 'styled-components';
 import { EditOutlined, DeleteOutlined, CheckCircleOutline, CancelOutlined } from '@mui/icons-material';
 
 import { blue, neonGreen, textColor } from '../../styles/Colors';
-import { IDescrProps, IImageProps, IInfoProps, IPriceProps, IRateProps, ITitleProps } from '../../types/Interfaces';
+import {
+  IDescrProps,
+  IImageContainerProps,
+  IImageProps,
+  IInfoProps,
+  IPriceProps,
+  IRateProps,
+  ITitleProps,
+} from '../../types/Interfaces';
 
 export const ProductItemStyles = styled.div`
   margin-bottom: 24px;
@@ -70,6 +78,17 @@ export const CancelOutlineIconStyles = styled(CancelOutlined)`
   }
 `;
 
+export const ProductItemImageContainerStyles = styled.div<IImageContainerProps>`
+  display: flex;
+  flex-basis: 1;
+  flex-shrink: 0;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  height: 120px;
+  width: 70px;
+`;
+
 export const ProductItemImageStyles = styled.img<IImageProps>`
   max-height: 100%;
   width: ${({ width }) => width || '70px'};
@@ -92,6 +111,11 @@ export const ProductItemTitleStyles = styled.p<ITitleProps>`
 
 export const ProductItemDescrStyles = styled.p<IDescrProps>`
   font-size: ${({ fontSize }) => fontSize || '16px'};
+  overflow: ${({ overflow }) => overflow || 'hidden'};
+  text-overflow: ${({ $textOverflow }) => $textOverflow || 'ellipsis'};
+  display: ${({ display }) => display || '-webkit-box'};
+  -webkit-line-clamp: ${({ $webkitLineClamp }) => $webkitLineClamp || '1'};
+  -webkit-box-orient: ${({ $webkitBoxOrient }) => $webkitBoxOrient || 'vertical'};
 `;
 
 export const ProductItemRatingStyles = styled.p<IRateProps>`

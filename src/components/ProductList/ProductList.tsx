@@ -6,8 +6,9 @@ import ProductItem from '../ProductItem/ProductItem';
 
 import { IProductsProps } from '../../types/Interfaces';
 import { ProductsItemsStyles, ProductsStyles } from './ProductList.styles';
+import { Skeleton } from '../Skeleton/Skeleton';
 
-function Products({ allProducts }: IProductsProps) {
+function Products({ allProducts, loading }: IProductsProps) {
   const { id } = useParams();
   const match = useMatch('/admin-control/products');
 
@@ -19,7 +20,13 @@ function Products({ allProducts }: IProductsProps) {
     <ProductsStyles>
       <ProductsItemsStyles>
         {id ? (
-          <Outlet />
+          loading ? (
+            [...new Array(5)].map((_, index) => <Skeleton key={index} />)
+          ) : (
+            <Outlet />
+          )
+        ) : loading ? (
+          [...new Array(5)].map((_, index) => <Skeleton key={index} />)
         ) : (
           allProducts.map(item => (
             <Link key={item.id} to={pathUrl(item.id)}>
