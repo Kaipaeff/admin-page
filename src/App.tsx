@@ -27,7 +27,7 @@ function App() {
     const fetchProducts = async () => {
       try {
         setLoading(true);
-        await new Promise(resolve => setTimeout(resolve, 1500));
+        await new Promise(resolve => setTimeout(resolve, 1000));
         const allProductsApi: IProduct[] = await fetchProductsApi();
         setAllProducts(allProductsApi);
       } catch (error) {

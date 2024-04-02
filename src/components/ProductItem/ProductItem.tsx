@@ -24,7 +24,6 @@ import { IProductItemPropsType } from '../../types/Interfaces';
 import {
   ProductItemDescrStyles,
   ProductItemImageContainerStyles,
-  ProductItemImageStyles,
   ProductItemInfoStyles,
   ProductItemPriceStyles,
   ProductItemRatingStyles,
@@ -170,8 +169,8 @@ function ProductItem({ product: { title, price, image, description, rating } }: 
               },
             }}
           >
-            <ProductItemImageContainerStyles>
-              <ProductItemImageStyles width={id && '290px'} src={image} />
+            <ProductItemImageContainerStyles width={id && '290px'}>
+              <img src={image} />
             </ProductItemImageContainerStyles>
 
             {!id && <Divider orientation="vertical" variant="fullWidth" sx={{ m: '0 56px', height: '120px' }} />}
