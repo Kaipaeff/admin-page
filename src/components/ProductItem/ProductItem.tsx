@@ -19,7 +19,7 @@ import {
 // import { getAllTodosApi } from '../../services/api/rest/getAllTodosApi';
 // import { updateTaskApi } from '../../services/api/rest/updateTaskApi';
 
-import { IProductItemPropsType } from '../../types/Interfaces';
+import { IProductItemProps } from '../../types/Interfaces';
 
 import {
   ProductItemDescrStyles,
@@ -37,7 +37,7 @@ import {
 import { deleteItemColor, mediumGrey, white } from '../../styles/Colors';
 import { useParams } from 'react-router-dom';
 
-function ProductItem({ product: { title, price, image, description, rating } }: IProductItemPropsType) {
+function ProductItem({ product: { title, price, image, description, rating } }: IProductItemProps) {
   // const [checked, setChecked] = useState<boolean>(item.completed);
   const [showModal, setShowModal] = useState<boolean>(false);
   // const [notification, setNotification] = useState<INotificationProps>({ open: false, type: '', message: '' });
