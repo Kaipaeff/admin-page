@@ -4,11 +4,12 @@ import {} from 'react-router-dom';
 
 import ProductItem from '../ProductItem/ProductItem';
 
-import { IProductsProps } from '../../types/Interfaces';
 import { ProductsItemsStyles, ProductsStyles } from './ProductList.styles';
 import { Skeleton } from '../Skeleton/Skeleton';
+import useProducts from '../hooks/useProducts.hook';
 
-function Products({ allProducts, loading }: IProductsProps) {
+function ProductList() {
+  const { products, loading } = useProducts();
   const { id } = useParams();
   const match = useMatch('/admin-control/products');
 
@@ -20,15 +21,11 @@ function Products({ allProducts, loading }: IProductsProps) {
     <ProductsStyles>
       <ProductsItemsStyles>
         {id ? (
-          loading ? (
-            [...new Array(5)].map((_, index) => <Skeleton key={index} />)
-          ) : (
-            <Outlet />
-          )
+          <Outlet />
         ) : loading ? (
           [...new Array(5)].map((_, index) => <Skeleton key={index} />)
         ) : (
-          allProducts.map(item => (
+          products.map(item => (
             <Link key={item.id} to={pathUrl(item.id)}>
               <ProductItem key={item.id} product={item} />
             </Link>
@@ -39,4 +36,4 @@ function Products({ allProducts, loading }: IProductsProps) {
   );
 }
 
-export default Products;
+export default ProductList;

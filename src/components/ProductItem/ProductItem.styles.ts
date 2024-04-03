@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 import { EditOutlined, DeleteOutlined, CheckCircleOutline, CancelOutlined } from '@mui/icons-material';
 
-import { blue, neonGreen, textColor } from '../../styles/Colors';
+import { blue, mainGrey, textColor } from '../../styles/Colors';
 import {
   IDescrProps,
   IImageContainerProps,
@@ -99,8 +99,8 @@ export const ProductItemInfoStyles = styled.div<IInfoProps>`
 
 export const ProductItemTitleStyles = styled.p<ITitleProps>`
   font-size: ${({ fontSize }) => fontSize || '18px'};
-  font-weight: 700;
-  color: ${neonGreen};
+  font-weight: 800;
+  color: ${mainGrey};
 `;
 
 export const ProductItemDescrStyles = styled.p<IDescrProps>`

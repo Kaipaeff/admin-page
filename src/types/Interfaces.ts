@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-export type IProduct = {
+export type ProductType = {
   id: number;
   title: string;
   price: number;
@@ -13,18 +13,18 @@ export type IProduct = {
   };
 };
 
-export type IProductItemPropsType = {
+export interface IProductItemProps {
   index?: number;
-  product: IProduct;
-};
+  product: ProductType;
+}
 
 export interface IProductsProps {
-  allProducts: IProduct[] | [];
-  setAllProducts?: React.Dispatch<React.SetStateAction<IProduct[]>>;
+  products: ProductType[] | [];
+  setProducts?: React.Dispatch<React.SetStateAction<ProductType[]>>;
   loading?: boolean;
 }
 
-export interface IToolbarProps extends Partial<Pick<IProductsProps, 'allProducts'>> {
+export interface IToolbarProps {
   title?: string;
   icon?: ReactNode;
   button?: ReactNode;
@@ -50,9 +50,9 @@ export interface IUserProps {
   setUser?: React.Dispatch<React.SetStateAction<IUser>>;
 }
 
-export interface ISingleProductPageProps extends Pick<IProductsProps, 'allProducts'>, IUserProps {}
-export interface IAdminControlPageProps extends Pick<IProductsProps, 'allProducts'> {}
-export interface IHomePageProps extends IProductsProps, IUserProps {}
+export interface ISingleProductPageProps extends Pick<IProductsProps, 'products'> {}
+// export interface IAdminControlPageProps extends Pick<IProductsProps, 'allProducts'> {}
+// export interface IHomePageProps extends IProductsProps, IUserProps {}
 export interface ILayoutProps extends IUserProps {}
 export interface IHeaderProps extends IUserProps {}
 

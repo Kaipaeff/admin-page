@@ -4,14 +4,13 @@ import { Divider } from '@mui/material';
 import NavMenu from '../../components/NavMenu/NavMenu';
 import Toolbar from '../../components/Toolbar/Toolbar.component';
 
-import { IAdminControlPageProps } from '../../types/Interfaces';
 import { AdminControlContentStyles } from './AdminControlPage.styles';
 import { AdminPanelSettingsIcon } from '../../components/Toolbar/Toolbar.styles';
 
-function AdminControlPage({ allProducts }: IAdminControlPageProps) {
+function AdminControlPage() {
   return (
     <>
-      <Toolbar title={'Панель управления'} icon={<AdminPanelSettingsIcon />} allProducts={allProducts} />
+      <Toolbar title={'Панель управления'} icon={<AdminPanelSettingsIcon />} />
       <Divider variant="fullWidth" sx={{ mb: '24px' }} />
       <AdminControlContentStyles>
         <NavMenu />

@@ -7,10 +7,10 @@ import ProductItem from '../../components/ProductItem/ProductItem';
 import { ISingleProductPageProps } from '../../types/Interfaces';
 import { mainGrey } from '../../styles/Colors';
 
-function SingleProductPage({ allProducts }: ISingleProductPageProps) {
+function SingleProductPage({ products }: ISingleProductPageProps) {
   const navigate = useNavigate();
   const { id } = useParams();
-  const product = allProducts.find(el => el.id === Number(id));
+  const product = products.find(el => el.id === Number(id));
 
   if (!product) {
     return <div>Product not found</div>;
