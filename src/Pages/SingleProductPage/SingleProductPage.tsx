@@ -4,13 +4,18 @@ import { Button, Divider } from '@mui/material';
 
 import ProductItem from '../../components/ProductItem/ProductItem';
 
-import { ISingleProductPageProps } from '../../types/Interfaces';
 import { mainGrey } from '../../styles/Colors';
+import { useGetProductsQuery } from '../../store/fakeApi/fakeApi.api';
 
-function SingleProductPage({ products }: ISingleProductPageProps) {
-  const navigate = useNavigate();
+function SingleProductPage() {
+  const { isLoading, data } = useGetProductsQuery('products');
   const { id } = useParams();
-  const product = products.find(el => el.id === Number(id));
+  const product = data?.find(el => el.id === Number(id));
+  const navigate = useNavigate();
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   if (!product) {
     return <div>Product not found</div>;

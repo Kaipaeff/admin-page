@@ -16,11 +16,9 @@ import UsersPage from './Pages/Users/UsersPage';
 import CategoriesPage from './Pages/Categories/CategoriesPage';
 import OrdersPage from './Pages/Orders/OrdersPage';
 import StartPage from './Pages/StartPage/StartPage';
-import useProducts from './components/hooks/useProducts.hook';
 
 function App() {
   const [user, setUser] = useState<IUser>({ login: 'Admin', password: '123', isAdmin: false });
-  const { products } = useProducts();
 
   return (
     <>
@@ -34,13 +32,13 @@ function App() {
             <Route path="categories" element={<CategoriesPage />} />
 
             <Route path="products" element={<ProductList />}>
-              <Route path=":id" element={<SingleProductPage products={products} />} />
+              <Route path=":id" element={<SingleProductPage />} />
             </Route>
 
             <Route path="orders" element={<OrdersPage />} />
             <Route path="reports" element={<ReportsPage />} />
           </Route>
-          <Route path="products/:id" element={<SingleProductPage products={products} />} />
+          <Route path="products/:id" element={<SingleProductPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

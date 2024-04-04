@@ -1,8 +1,8 @@
 import * as XLSX from 'xlsx';
 import saveAs from 'file-saver';
-import { IProduct } from '../types/Interfaces';
+import { ProductType } from '../types/Interfaces';
 
-export const downloadList = (list: IProduct[]) => {
+export const downloadList = (list: ProductType[]) => {
   const jsonData = JSON.stringify(list);
   const data = JSON.parse(jsonData);
   const workbook = XLSX.utils.book_new();

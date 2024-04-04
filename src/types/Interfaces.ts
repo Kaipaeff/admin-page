@@ -18,10 +18,13 @@ export interface IProductItemProps {
   product: ProductType;
 }
 
+export interface IProductState {
+  product: ProductType[];
+}
+
 export interface IProductsProps {
   products: ProductType[] | [];
   setProducts?: React.Dispatch<React.SetStateAction<ProductType[]>>;
-  loading?: boolean;
 }
 
 export interface IToolbarProps {
@@ -50,7 +53,7 @@ export interface IUserProps {
   setUser?: React.Dispatch<React.SetStateAction<IUser>>;
 }
 
-export interface ISingleProductPageProps extends Pick<IProductsProps, 'products'> {}
+// export interface ISingleProductPageProps extends Pick<IProductsProps, 'products'> {}
 // export interface IAdminControlPageProps extends Pick<IProductsProps, 'allProducts'> {}
 // export interface IHomePageProps extends IProductsProps, IUserProps {}
 export interface ILayoutProps extends IUserProps {}

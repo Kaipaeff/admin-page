@@ -19,12 +19,12 @@ import lettersUp from '../../assets/img/icons/sort-za.svg';
 import numbersDown from '../../assets/img/icons/sort-9-0.svg';
 import numbersUp from '../../assets/img/icons/sort-0-9.svg';
 import { downloadList } from '../../utilities/downloadList';
-import useProducts from '../hooks/useProducts.hook';
+import { useGetProductsQuery } from '../../store/fakeApi/fakeApi.api';
 
 function Toolbar({ title, icon, button }: IToolbarProps) {
   const [sortOfLetters, setSortOfLetters] = useState(true);
   const [sortOfPrice, setSortOfPrice] = useState(false);
-  const { products } = useProducts();
+  const { data } = useGetProductsQuery('products');
 
   const handleLettersSort = () => {
     setSortOfLetters(prev => !prev);
@@ -35,8 +35,8 @@ function Toolbar({ title, icon, button }: IToolbarProps) {
   };
 
   const handleDownload = () => {
-    if (products) {
-      downloadList(products);
+    if (data) {
+      downloadList(data);
     }
   };
 
