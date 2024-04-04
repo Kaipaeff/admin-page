@@ -1,7 +1,5 @@
 import { Link, Outlet, useMatch, useParams } from 'react-router-dom';
 
-import {} from 'react-router-dom';
-
 import ProductItem from '../ProductItem/ProductItem';
 
 import { ProductsItemsStyles, ProductsStyles } from './ProductList.styles';
