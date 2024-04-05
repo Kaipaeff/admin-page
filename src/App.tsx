@@ -1,7 +1,5 @@
-import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import { IUser } from './types/Interfaces';
 import { GlobalStyles } from './styles/GlobalStyles';
 
 import Layout from './components/Layout/Layout';
@@ -18,13 +16,11 @@ import OrdersPage from './Pages/Orders/OrdersPage';
 import StartPage from './Pages/StartPage/StartPage';
 
 function App() {
-  const [user, setUser] = useState<IUser>({ login: 'Admin', password: '123', isAdmin: false });
-
   return (
     <>
       <GlobalStyles />
       <Routes>
-        <Route path="/" element={<Layout user={user} setUser={setUser} />}>
+        <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="admin-control" element={<AdminControlPage />}>
             <Route path="start-page" element={<StartPage />} />

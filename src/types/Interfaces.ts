@@ -56,7 +56,7 @@ export interface IUserProps {
 // export interface ISingleProductPageProps extends Pick<IProductsProps, 'products'> {}
 // export interface IAdminControlPageProps extends Pick<IProductsProps, 'allProducts'> {}
 // export interface IHomePageProps extends IProductsProps, IUserProps {}
-export interface ILayoutProps extends IUserProps {}
+// export interface ILayoutProps extends IUserProps {}
 export interface IHeaderProps extends IUserProps {}
 
 export interface IImageContainerProps {
@@ -107,4 +107,10 @@ export interface IRateProps {
 
 export interface IPriceProps {
   fontSize?: string;
+}
+
+export interface ModalProps {
+  open: boolean;
+  onClose: () => void;
+  children: React.ReactNode;
 }
