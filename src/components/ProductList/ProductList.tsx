@@ -1,10 +1,10 @@
 import { Link, Outlet, useMatch, useParams } from 'react-router-dom';
+import { useGetProductsQuery } from '../../store/fakeApi/fakeApi.api';
 
 import ProductItem from '../ProductItem/ProductItem';
+import { Skeleton } from '../Skeleton/Skeleton';
 
 import { ProductsItemsStyles, ProductsStyles } from './ProductList.styles';
-import { Skeleton } from '../Skeleton/Skeleton';
-import { useGetProductsQuery } from '../../store/fakeApi/fakeApi.api';
 
 function ProductList() {
   const { isLoading, data } = useGetProductsQuery('products');
