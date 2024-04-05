@@ -7,8 +7,8 @@ export const fakeApi = createApi({
     baseUrl: 'https://fakestoreapi.com/',
   }),
   refetchOnFocus: true,
-  endpoints: build => ({
-    getProducts: build.query<ProductType[], string>({
+  endpoints: (builder) => ({
+    getProducts: builder.query<ProductType[], string>({
       query: () => ({
         url: 'products',
       }),

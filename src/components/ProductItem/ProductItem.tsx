@@ -8,6 +8,8 @@ import {
   // Tooltip,
   // Box,
   Button,
+  // Typography,
+  // Box,
   // Snackbar,
   // Alert,
   // AlertColor,
@@ -36,6 +38,7 @@ import {
 } from './ProductItem.styles';
 import { deleteItemColor, mediumGrey, white } from '../../styles/Colors';
 import { useParams } from 'react-router-dom';
+// import Modal from '../Modal/Modal';
 
 function ProductItem({ product: { title, price, image, description, rating } }: IProductItemProps) {
   // const [checked, setChecked] = useState<boolean>(item.completed);

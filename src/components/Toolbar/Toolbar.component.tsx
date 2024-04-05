@@ -20,10 +20,15 @@ import numbersDown from '../../assets/img/icons/sort-9-0.svg';
 import numbersUp from '../../assets/img/icons/sort-0-9.svg';
 import { downloadList } from '../../utilities/downloadList';
 import { useGetProductsQuery } from '../../store/fakeApi/fakeApi.api';
+import Modal from '../Modal/Modal';
+import { Box, TextField, Typography } from '@mui/material';
+import { ModalInputBoxStyles } from '../Modal/Modal.styles';
 
 function Toolbar({ title, icon, button }: IToolbarProps) {
   const [sortOfLetters, setSortOfLetters] = useState(true);
   const [sortOfPrice, setSortOfPrice] = useState(false);
+  const [showModal, setShowModal] = useState<boolean>(false);
+
   const { data } = useGetProductsQuery('products');
 
   const handleLettersSort = () => {
@@ -40,6 +45,10 @@ function Toolbar({ title, icon, button }: IToolbarProps) {
     }
   };
 
+  const handleAddProduct = () => {
+    setShowModal(true);
+  };
+
   const match = useMatch('/admin-control/products');
 
   return (
@@ -53,7 +62,7 @@ function Toolbar({ title, icon, button }: IToolbarProps) {
       <ToolbarControlButtonsStyles>
         {match && (
           <ToolbarServicesButtonsStyles>
-            <Button variant="outlined" color="inherit" size="small" sx={{ pr: '12px' }}>
+            <Button onClick={handleAddProduct} variant="outlined" color="inherit" size="small" sx={{ pr: '12px' }}>
               <AddIcon sx={{ mr: '4px' }} />
               Добавить товар
             </Button>
@@ -73,6 +82,26 @@ function Toolbar({ title, icon, button }: IToolbarProps) {
           {sortOfPrice ? <img src={numbersDown} alt="Сортировка" /> : <img src={numbersUp} alt="Сортировка" />}
         </Button>
       </ToolbarControlButtonsStyles>
+
+      <Modal open={showModal} onClose={() => setShowModal(false)}>
+        <Typography variant="h6" mb={2}>
+          Добавить новый товар
+        </Typography>
+        <ModalInputBoxStyles>
+          <TextField label="Название товара" />
+          <TextField label="Описание товара" />
+          <TextField label="URL Картинки товара" />
+          <TextField label="Цена" />
+        </ModalInputBoxStyles>
+        <Box>
+          <Button variant="outlined" sx={{ mr: '40px' }} onClick={() => setShowModal(false)}>
+            Отмена
+          </Button>
+          <Button variant="outlined" color="success">
+            Добавить
+          </Button>
+        </Box>
+      </Modal>
     </ToolbarStyles>
   );
 }
