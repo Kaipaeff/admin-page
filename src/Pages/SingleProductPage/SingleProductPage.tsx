@@ -5,12 +5,12 @@ import { Button, Divider } from '@mui/material';
 import ProductItem from '../../components/ProductItem/ProductItem';
 
 import { mainGrey } from '../../styles/Colors';
-import { useGetProductsQuery } from '../../store/fakeApi/fakeApi.api';
+import { useGetProductsQuery } from '../../store/product/productsApi';
 
 function SingleProductPage() {
-  const { isLoading, data } = useGetProductsQuery('products');
+  const { isLoading, data } = useGetProductsQuery('');
   const { id } = useParams();
-  const product = data?.find(el => el.id === Number(id));
+  const product = data?.find(el => Number(el.id) === Number(id));
   const navigate = useNavigate();
 
   if (isLoading) {

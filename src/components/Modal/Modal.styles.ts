@@ -30,10 +30,10 @@ export const ModalContentStyles = styled.div`
   }
 `;
 
-export const ModalInputBoxStyles = styled.div`
+export const ModalInputBoxStyles = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
   margin-bottom: 24px;
   width: 100%;
 `;

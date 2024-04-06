@@ -201,7 +201,7 @@ function ProductItem({ product: { title, price, image, description, rating } }: 
 
               <ProductItemPriceStyles fontSize={id && '32px'}>
                 <sup style={{ color: mediumGrey, fontSize: '0.7em', marginRight: '4px' }}>$</sup>
-                {price.toFixed(2)}
+                {price}
               </ProductItemPriceStyles>
 
               {id && (

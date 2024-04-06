@@ -1,9 +1,9 @@
 import { ReactNode } from 'react';
 
 export type ProductType = {
-  id: number;
+  id: string;
   title: string;
-  price: number;
+  price: string;
   description: string;
   category: string;
   image: string;
