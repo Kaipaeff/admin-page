@@ -1,12 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
-import { fakeApi } from './fakeApi/fakeApi.api';
+import { productsApi } from './product/productsApi';
 
 export const store = configureStore({
   reducer: {
-    [fakeApi.reducerPath]: fakeApi.reducer,
+    [productsApi.reducerPath]: productsApi.reducer,
   },
-  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(fakeApi.middleware),
+  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(productsApi.middleware),
 });
 
 setupListeners(store.dispatch);
