@@ -40,7 +40,6 @@ function Toolbar({ title, icon, button }: IToolbarProps) {
   });
 
   const { data = [] } = useGetProductsQuery('');
-  // console.log('state:', data);
   const [addProduct, {}] = useAddProductMutation();
 
   const handleOpenAddModal = () => {
@@ -164,10 +163,10 @@ function Toolbar({ title, icon, button }: IToolbarProps) {
           />
         </ModalInputBoxStyles>
         <Box>
-          <Button variant="outlined" sx={{ mr: '40px' }} onClick={() => setShowModal(false)}>
-            Закрыть
+          <Button variant="outlined" color="inherit" sx={{ mr: '40px' }} onClick={() => setShowModal(false)}>
+            Отмена
           </Button>
-          <Button onClick={handleAddProduct} variant="outlined" color="success">
+          <Button onClick={handleAddProduct} variant="outlined" color="info">
             Добавить
           </Button>
         </Box>

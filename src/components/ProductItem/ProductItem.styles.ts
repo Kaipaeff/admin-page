@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { EditOutlined, DeleteOutlined, CheckCircleOutline, CancelOutlined } from '@mui/icons-material';
+import { CheckCircleOutline, CancelOutlined } from '@mui/icons-material';
 
 import { blue, mainGrey, textColor } from '../../styles/Colors';
 import {
@@ -14,36 +14,6 @@ import {
 export const ProductItemStyles = styled.div`
   margin-bottom: 24px;
   padding: 2px;
-
-  @media (max-width: 640px) {
-    margin-bottom: 12px;
-  }
-`;
-
-export const EditOutlinedIconStyles = styled(EditOutlined)`
-  color: ${textColor};
-  cursor: pointer;
-  transition: color 0.3s;
-
-  &:hover {
-    color: ${blue};
-  }
-`;
-
-export const DeleteOutlinedIconStyles = styled(DeleteOutlined)`
-  color: ${textColor};
-  cursor: pointer;
-  margin-right: 24px;
-  transition: color 0.3s;
-
-  &:hover {
-    color: ${blue};
-  }
-
-  @media (max-width: 640px) {
-    margin-right: 0;
-    scale: 0.8;
-  }
 `;
 
 export const SaveOutlineIconStyles = styled(CheckCircleOutline)`
@@ -98,6 +68,8 @@ export const ProductItemInfoStyles = styled.div<IInfoProps>`
 `;
 
 export const ProductItemTitleStyles = styled.p<ITitleProps>`
+  display: flex;
+  justify-content: space-between;
   font-size: ${({ fontSize }) => fontSize || '18px'};
   font-weight: 800;
   color: ${mainGrey};

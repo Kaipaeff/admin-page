@@ -8,8 +8,6 @@ import { ProductsItemsStyles, ProductsStyles } from './ProductList.styles';
 
 function ProductList() {
   const { isLoading, data = [] } = useGetProductsQuery('');
-  // console.log('state from ProductList:', data);
-
   const { id } = useParams();
   const match = useMatch('/admin-control/products');
 

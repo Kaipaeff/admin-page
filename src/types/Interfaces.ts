@@ -59,6 +59,10 @@ export interface IUserProps {
 // export interface ILayoutProps extends IUserProps {}
 export interface IHeaderProps extends IUserProps {}
 
+export interface IControlButtonsProps {
+  id: string;
+}
+
 export interface IImageContainerProps {
   display?: string;
   fleGrow?: number;
