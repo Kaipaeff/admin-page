@@ -32,7 +32,7 @@ function Toolbar({ title, icon, button }: IToolbarProps) {
     title: '',
     description: '',
     image: '',
-    price: '',
+    price: 0,
     rating: {
       rate: 0,
       count: 0,
@@ -40,7 +40,7 @@ function Toolbar({ title, icon, button }: IToolbarProps) {
   });
 
   const { data = [] } = useGetProductsQuery('');
-  const [addProduct, {}] = useAddProductMutation();
+  const [addProduct] = useAddProductMutation();
 
   const handleOpenAddModal = () => {
     setShowModal(true);
@@ -53,7 +53,7 @@ function Toolbar({ title, icon, button }: IToolbarProps) {
         title: value.title,
         description: value.description,
         image: value.image,
-        price: value.price,
+        price: Number(value.price),
         rating: {
           rate: 0,
           count: 0,
@@ -64,7 +64,7 @@ function Toolbar({ title, icon, button }: IToolbarProps) {
       title: '',
       description: '',
       image: '',
-      price: '',
+      price: 0,
       rating: {
         rate: 0,
         count: 0,
@@ -99,23 +99,23 @@ function Toolbar({ title, icon, button }: IToolbarProps) {
       <ToolbarControlButtonsStyles>
         {match && (
           <ToolbarServicesButtonsStyles>
-            <Button onClick={handleOpenAddModal} variant="outlined" color="inherit" size="small" sx={{ pr: '12px' }}>
+            <Button onClick={handleOpenAddModal} variant="outlined" color="success" size="small" sx={{ pr: '12px' }}>
               <AddIcon sx={{ mr: '4px' }} />
               Добавить товар
             </Button>
 
-            <Button onClick={handleDownload} variant="outlined" color="inherit" size="small" sx={{ pr: '12px' }}>
+            <Button onClick={handleDownload} variant="outlined" color="primary" size="small" sx={{ pr: '12px' }}>
               <FileDownloadOutlinedIcon sx={{ mr: '4px' }} />
               Выгрузить список
             </Button>
           </ToolbarServicesButtonsStyles>
         )}
 
-        <Button onClick={handleLettersSort} variant="outlined" color="inherit" size="small">
+        <Button onClick={handleLettersSort} variant="outlined" color="primary" size="small">
           {sortOfLetters ? <img src={lettersDown} alt="Сортировка" /> : <img src={lettersUp} alt="Сортировка" />}
         </Button>
 
-        <Button onClick={handleNumbersSort} variant="outlined" color="inherit" size="small">
+        <Button onClick={handleNumbersSort} variant="outlined" color="primary" size="small">
           {sortOfPrice ? <img src={numbersDown} alt="Сортировка" /> : <img src={numbersUp} alt="Сортировка" />}
         </Button>
       </ToolbarControlButtonsStyles>
@@ -155,7 +155,7 @@ function Toolbar({ title, icon, button }: IToolbarProps) {
           <TextField
             value={value.price}
             onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-              setValue(prev => ({ ...prev, price: event.target.value }));
+              setValue(prev => ({ ...prev, price: Number(event.target.value) }));
             }}
             size="small"
             label="Цена"

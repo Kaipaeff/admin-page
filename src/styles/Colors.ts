@@ -6,6 +6,7 @@ export const mainGrey = '#706F6F';
 export const mediumGrey = '#454545';
 export const deepGrey = '#303030';
 
+export const primaryBlue = '#4B7ADD';
 export const blue = '#1976D2';
 export const lightBlue = '#8CBAE8';
 

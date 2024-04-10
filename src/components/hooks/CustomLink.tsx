@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { CustomLinkProps } from '../../types/Interfaces';
 
-import { mainGrey, neonGreen } from '../../styles/Colors';
+import { mainGrey, primaryBlue } from '../../styles/Colors';
 
 const CustomLink = ({ children, to }: CustomLinkProps) => {
   return (
@@ -10,7 +10,7 @@ const CustomLink = ({ children, to }: CustomLinkProps) => {
       style={({ isActive }) => {
         return {
           fontWeight: isActive ? 'bold' : '',
-          color: isActive ? neonGreen : mainGrey,
+          color: isActive ? primaryBlue : mainGrey,
         };
       }}
     >
