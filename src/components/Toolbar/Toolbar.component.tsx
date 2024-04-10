@@ -86,7 +86,7 @@ function Toolbar({ title, icon, button }: IToolbarProps) {
     }
   };
 
-  const match = useMatch('/admin-control/products');
+  const match = useMatch('admin-page/admin-control/products');
 
   return (
     <ToolbarStyles>
