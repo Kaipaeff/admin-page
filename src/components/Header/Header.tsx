@@ -50,7 +50,7 @@ function Header({ user, setUser }: IHeaderProps) {
     } else if (user.isAdmin && page === 'Dashboard') {
       navigate('admin-control/start-page');
     } else if (page === 'Login') {
-      const password = prompt('Введите пароль для входа:');
+      const password = prompt('Введите пароль для входа (111):');
       if (password === '111') {
         const newUser = { ...user, isAdmin: true };
         localStorage.setItem('user', JSON.stringify(newUser));
