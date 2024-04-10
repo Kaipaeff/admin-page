@@ -51,7 +51,7 @@ function ControlButtons({ id }: IControlButtonsProps) {
 
   const handleConfirmDelete = async (id: string) => {
     await deleteProduct(id).unwrap();
-    navigate('/admin-control/products');
+    navigate('/admin-page/admin-control/products');
   };
 
   const handleEdit = () => {
