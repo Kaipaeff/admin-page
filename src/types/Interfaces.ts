@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 export type ProductType = {
   id: string;
   title: string;
-  price: string;
+  price: number;
   description: string;
   category: string;
   image: string;
@@ -53,10 +53,6 @@ export interface IUserProps {
   setUser?: React.Dispatch<React.SetStateAction<IUser>>;
 }
 
-// export interface ISingleProductPageProps extends Pick<IProductsProps, 'products'> {}
-// export interface IAdminControlPageProps extends Pick<IProductsProps, 'allProducts'> {}
-// export interface IHomePageProps extends IProductsProps, IUserProps {}
-// export interface ILayoutProps extends IUserProps {}
 export interface IHeaderProps extends IUserProps {}
 
 export interface IControlButtonsProps {
