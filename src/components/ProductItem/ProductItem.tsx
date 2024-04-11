@@ -18,7 +18,7 @@ import ControlButtons from '../ControlButtons/ControlButtons.component';
 
 function ProductItem({ product: { title, price, image, description, rating, id: productId } }: IProductItemProps) {
   const { id } = useParams();
-  const match = useMatch(`admin-control/products/${id}`);
+  const match = useMatch(`/admin-page/admin-control/products/${id}`);
 
   return (
     <ProductItemStyles>
