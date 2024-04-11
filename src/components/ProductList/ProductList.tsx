@@ -9,10 +9,10 @@ import { ProductsItemsStyles, ProductsStyles } from './ProductList.styles';
 function ProductList() {
   const { isLoading, data = [] } = useGetProductsQuery('');
   const { id } = useParams();
-  const match = useMatch('/admin-control/products');
+  const match = useMatch('/admin-page/admin-control/products');
 
   const pathUrl = (id: number) => {
-    return match ? `/admin-control/products/${id}` : `/products/${id}`;
+    return match ? `/admin-page/admin-control/products/${id}` : `/admin-page/products/${id}`;
   };
 
   return (
