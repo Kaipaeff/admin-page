@@ -20,7 +20,7 @@ function App() {
     <>
       <GlobalStyles />
       <Routes>
-        <Route path="/admin-page" element={<Layout />}>
+        <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="admin-control" element={<AdminControlPage />}>
             <Route path="start-page" element={<StartPage />} />
