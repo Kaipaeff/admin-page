@@ -49,7 +49,7 @@ function ControlButtons({ id }: IControlButtonsProps) {
     setShowDeleteModal(true);
   };
 
-  const handleConfirmDelete = async (id: string) => {
+  const handleConfirmDelete = async (id: number) => {
     await deleteProduct(id).unwrap();
     navigate('/admin-page/admin-control/products');
   };
@@ -82,7 +82,7 @@ function ControlButtons({ id }: IControlButtonsProps) {
           <Button variant="outlined" color="inherit" sx={{ mr: '40px' }} onClick={() => setShowDeleteModal(false)}>
             Отмена
           </Button>
-          <Button variant="outlined" color="error" onClick={() => handleConfirmDelete(String(id))}>
+          <Button variant="outlined" color="error" onClick={() => handleConfirmDelete(id)}>
             Удалить
           </Button>
         </Box>

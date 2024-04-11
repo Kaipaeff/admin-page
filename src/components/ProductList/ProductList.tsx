@@ -11,7 +11,7 @@ function ProductList() {
   const { id } = useParams();
   const match = useMatch('/admin-page/admin-control/products');
 
-  const pathUrl = (id: string) => {
+  const pathUrl = (id: number) => {
     return match ? `/admin-page/admin-control/products/${id}` : `/admin-page/products/${id}`;
   };
 

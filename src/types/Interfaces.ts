@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 export type ProductType = {
-  id: string;
+  id: number;
   title: string;
   price: number;
   description: string;
@@ -56,7 +56,7 @@ export interface IUserProps {
 export interface IHeaderProps extends IUserProps {}
 
 export interface IControlButtonsProps {
-  id: string;
+  id: number;
 }
 
 export interface IImageContainerProps {
