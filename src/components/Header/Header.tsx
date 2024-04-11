@@ -46,7 +46,7 @@ function Header({ user, setUser }: IHeaderProps) {
 
   const handleChoosePage = (page: string) => {
     if (page === 'Home') {
-      navigate('/admin-page');
+      navigate('/');
     } else if (user.isAdmin && page === 'Dashboard') {
       navigate('admin-control/start-page');
     } else if (page === 'Login') {
@@ -66,7 +66,7 @@ function Header({ user, setUser }: IHeaderProps) {
       if (setUser) {
         setUser({ ...user, isAdmin: false });
       }
-      navigate('/admin-page');
+      navigate('/');
     }
     setAnchorElUser(null);
   };
@@ -76,7 +76,7 @@ function Header({ user, setUser }: IHeaderProps) {
   return (
     <HeaderStyles>
       <HeaderContainerStyles>
-        <Link to={'/admin-page'}>
+        <Link to={'/'}>
           <LogoImage src={logo} alt="Логотип" />
         </Link>
         <ControlPanelStyles>
