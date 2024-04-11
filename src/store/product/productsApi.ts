@@ -6,7 +6,8 @@ export const productsApi = createApi({
   tagTypes: ['Products'],
   baseQuery: fetchBaseQuery({
     // baseUrl: 'https://fakestoreapi.com/',
-    baseUrl: 'http://localhost:3000',
+    // baseUrl: 'http://localhost:3000',
+    baseUrl: 'https://23534b8fe60c4699.mokky.dev',
   }),
   refetchOnFocus: true,
 
@@ -38,7 +39,7 @@ export const productsApi = createApi({
       invalidatesTags: [{ type: 'Products', id: 'LIST' }],
     }),
 
-    deleteProduct: builder.mutation<{ id: string }, string>({
+    deleteProduct: builder.mutation<{ id: number }, number>({
       query: id => ({
         url: `products/${id}`,
         method: 'DELETE',

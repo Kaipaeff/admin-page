@@ -49,7 +49,7 @@ function Toolbar({ title, icon, button }: IToolbarProps) {
   const handleAddProduct = async () => {
     if (value) {
       await addProduct({
-        id: (data.length + 1).toString(),
+        // id: (data.length + 1).toString(),
         title: value.title,
         description: value.description,
         image: value.image,
